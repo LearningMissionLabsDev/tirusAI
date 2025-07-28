@@ -1,0 +1,25 @@
+{
+    "sectionTitle": "Frequently Asked Questions",
+    "items": [
+        {
+            "q": "Will the chatbot work on any website Will the chatbot work on any website?Will the chatbot work on any website?Will the chatbot work on any website??",
+            "a": "Yes, it can be embedded via script.Yes, it can be embedded via script.Yes, it can be embedded via script.Yes, it can be embedded via script.Yes, it can be embedded via script.Yes, it can be embedded via script.Yes, it can be embedded via script.Yes, it can be embedded via script.Yes, it can be embedded via script.Yes, it can be embedded via script."
+        },
+        {
+            "q": "Do I need to know how to code to set it up?",
+            "a": "No, it’s no-code friendly."
+        },
+        {
+            "q": "Can the chatbot integrate with my CRM or email tool?",
+            "a": "Yes, we support many integrations."
+        },
+        {
+            "q": "What happens when the chatbot can’t answer a question?",
+            "a": "It can forward the conversation to a human."
+        },
+        {
+            "q": "Can I use it in multiple languages?",
+            "a": "Absolutely. It supports multilingual conversations."
+        }
+    ]
+}

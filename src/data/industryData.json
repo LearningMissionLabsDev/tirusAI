@@ -1,0 +1,17 @@
+[
+    {
+        "titleLine1": "Tirus in",
+        "titleLine2": "Education",
+        "image": "/assets/education.png"
+    },
+    {
+        "titleLine1": "Tirus in",
+        "titleLine2": "Medicine",
+        "image": "/assets/medicine.png"
+    },
+    {
+        "titleLine1": "Tirus in",
+        "titleLine2": "Real Estate",
+        "image": "/assets/real-estate.png"
+    }
+]

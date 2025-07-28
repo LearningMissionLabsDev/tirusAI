@@ -1,0 +1,44 @@
+{
+    "sectionTitle": "Find Your Perfect Plan",
+    "plans": [
+        {
+            "title": "Basic",
+            "description": "Perfect for individuals or small websites",
+            "price": "Free",
+            "buttonLabel": "Get Started",
+            "features": [
+                "Up to 50 chats/month",
+                "Basic design customization",
+                "Embed on 1 website",
+                "Email lead capture",
+                "Basic support"
+            ]
+        },
+        {
+            "title": "Standart",
+            "description": "Ideal for small to medium businesses",
+            "price": "Free",
+            "buttonLabel": "Get Started",
+            "features": [
+                "2,000 chats/month",
+                "Advanced flow logic",
+                "Analytics dashboard",
+                "Natural language understanding",
+                "Advanced branding"
+            ]
+        },
+        {
+            "title": "Pro",
+            "description": "Best for large teams or \nagencies",
+            "price": "Free",
+            "buttonLabel": "Get Started",
+            "features": [
+                "Use on unlimited websites",
+                "Full API access",
+                "Integration with internal tools",
+                "Dedicated account manager",
+                "Priority support"
+            ]
+        }
+    ]
+}

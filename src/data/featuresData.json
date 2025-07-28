@@ -1,0 +1,29 @@
+{
+  "sectionTitle": "Why Your Website Needs A Chatbot",
+  "items": [
+    {
+      "icon": "/assets/TimeIcon.png",
+      "alt": "Time Icon",
+      "title": "Available 24/7",
+      "subtitle": "Never miss a question \nor lead."
+    },
+    {
+      "icon": "/assets/LampIcon.png",
+      "alt": "Lamp Icon",
+      "title": "Instant Answers",
+      "subtitle": "Reduce bounce rates and support tickets."
+    },
+    {
+      "icon": "/assets/AnalyzeIcon.png",
+      "alt": "Analyze Icon",
+      "title": "More Engagement",
+      "subtitle": "Keep users \non-site longer."
+    },
+    {
+      "icon": "/assets/NoteIcon.png",
+      "alt": "Note Icon",
+      "title": "Lead Capture",
+      "subtitle": "Gather emails, phone numbers and preferences."
+    }
+  ]
+}
