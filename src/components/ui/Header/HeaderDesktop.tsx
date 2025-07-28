@@ -1,5 +1,5 @@
 import { Typography, Box } from "@mui/material";
-import DarkButton from "../../../components/UI/Buttons/DarkButton";
+import DarkButton from "../Buttons/DarkButton";
 import headerData from "../../../data/headerData.json";
 import { useTheme } from "@mui/material/styles";
 
