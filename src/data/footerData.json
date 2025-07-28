@@ -1,0 +1,15 @@
+{
+  "brandName": "Tirus",
+  "navLinks": [
+    { "title": "About Us", "href": "#" },
+    { "title": "Contact", "href": "#" },
+    { "title": "Terms", "href": "#" },
+    { "title": "Privacy", "href": "#" }
+  ],
+  "socialLinks": [
+    { "icon": "/assets/Facebook.png", "href": "#", "label": "Facebook" },
+    { "icon": "/assets/Instagram.png", "href": "#", "label": "Instagram" },
+    { "icon": "/assets/Linkedin.png", "href": "#", "label": "LinkedIn" }
+  ],
+  "copyright": "© 2025 Tirus. All rights reserved"
+}

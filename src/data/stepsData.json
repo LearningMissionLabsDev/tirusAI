@@ -1,0 +1,17 @@
+{
+  "sectionTitle": "How It Works",
+  "items": [
+    {
+        "number": "/assets/Step1.png",
+        "text": "Train your chatbot on your content & processes"
+    },
+    {
+        "number": "/assets/Step2.png",
+        "text": "Integrate with your tools"
+    },
+    {
+        "number": "/assets/Step3.png",
+        "text": "Launch — Let the AI start assisting users immediately"
+    }
+ ]
+}

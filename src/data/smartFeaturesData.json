@@ -1,0 +1,23 @@
+{
+    "sectionTitle": "Smart Features Built To Convert",
+    "item1": {
+        "title": "Behavior-Based\nTriggers",
+        "description": "Trigger chatbot messages based on scroll depth, exit intent, time spent on page, or specific button clicks — turning passive visitors into active leads.",
+        "buttonText": "Engage Visitors",
+        "image": "/assets/PhoneImage.png"
+    },
+    "item2": {
+        "title": "Mobile-Optimized\nExperience",
+        "description": "Ensure fast-loading, responsive chatbots that feel natural on smartphones and tablets — essential for today’s mobile-first users.",
+        "buttonText": "Go Mobile-Ready",
+        "image": "/assets/F35.png",
+        "inverted": true
+    },
+    "item3": {
+        "title": "AI-Generated FAQ\nResponses",
+        "description": "Automatically generate answers to common questions using your existing site content, saving time while delivering helpful replies.",
+        "buttonText": "Activate Smart FAQs",
+        "image": "/assets/WHAT.png",
+        "bgColor": "/assets/WhatBackground.png"
+    }
+}
