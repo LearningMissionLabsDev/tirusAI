@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
-import DarkButton from "../../../components/UI/Buttons/DarkButton";
+import DarkButton from "../Buttons/DarkButton";
 import headerData from "../../../data/headerData.json";
 import { useTheme } from "@mui/material/styles";
 
