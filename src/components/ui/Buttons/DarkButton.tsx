@@ -1,8 +1,9 @@
 import { Box, Button } from '@mui/material';
+import type { ButtonProps } from '@mui/material/Button';
 import { keyframes } from '@emotion/react';
-import theme from '../../../theme';
+import theme from '../../../theme'; // adjust this if needed
+import type { ReactNode } from 'react';
 
-// Define the rotation animation
 const rotate = keyframes`
   from {
     transform: translate(-50%) rotate(0deg);
@@ -12,7 +13,12 @@ const rotate = keyframes`
   }
 `;
 
-const GradientBorderButton = ({ children, onClick, sx = {}, ...props }) => {
+interface GradientBorderButtonProps extends ButtonProps {
+  children: ReactNode;
+  sx?: object;
+}
+
+const GradientBorderButton: React.FC<GradientBorderButtonProps> = ({ children, onClick, sx = {}, ...props }) => {
   return (
     <Box
       sx={{
@@ -22,7 +28,6 @@ const GradientBorderButton = ({ children, onClick, sx = {}, ...props }) => {
         p: '1px',
         overflow: 'hidden',
 
-        // Add shimmer effect with rotating highlight
         '&::before': {
           content: '""',
           position: 'absolute',

@@ -1,6 +1,18 @@
 import { Box, Button } from '@mui/material';
+import type { ButtonProps } from '@mui/material/Button';
+import type { ReactNode } from 'react';
 
-const LightGradientBorderButton = ({ children, onClick, sx = {}, ...props }) => {
+interface LightGradientBorderButtonProps extends ButtonProps {
+  children: ReactNode;
+  sx?: object;
+}
+
+const LightGradientBorderButton: React.FC<LightGradientBorderButtonProps> = ({
+  children,
+  onClick,
+  sx = {},
+  ...props
+}) => {
   return (
     <Box
       sx={{
