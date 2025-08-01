@@ -1,5 +1,5 @@
 import { Typography, Box } from "@mui/material";
-import DarkButton from "../Buttons/DarkButton";
+import Button from "../Buttons/Button";
 import headerData from "../../../data/headerData.json";
 import { useTheme } from "@mui/material/styles";
 
@@ -33,9 +33,7 @@ const HeaderDesktop: React.FC = () => {
         ))}
       </Box>
 
-      <DarkButton onClick={() => console.log("Clicked!")}>
-        {headerData.buttonLabel}
-      </DarkButton>
+      <Button onClick={() => console.log("Clicked!")} label={headerData.buttonLabel} />
     </>
   );
 };

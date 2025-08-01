@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
-import DarkButton from "../Buttons/DarkButton";
+import Button from "../Buttons/Button";
 import headerData from "../../../data/headerData.json";
 import { useTheme } from "@mui/material/styles";
 
@@ -47,9 +47,7 @@ const HeaderMobile: React.FC = () => {
       </Box>
 
       <Box sx={{ flex: "1 0 auto", display: "flex", justifyContent: "flex-end" }}>
-        <DarkButton onClick={() => console.log("Clicked!")}>
-          {headerData.buttonLabel}
-        </DarkButton>
+       <Button onClick={() => console.log("Clicked!")} label={headerData.buttonLabel} />
       </Box>
 
       <Drawer
