@@ -12,17 +12,10 @@ const Header: React.FC = () => {
 
   return (
     <AppBar
-      position="fixed"
+      position="static"
       sx={{
-        backgroundColor: "rgba(10, 15, 28, 0.05)", // transparent with 5% opacity
-        backdropFilter: "blur(30px)",
-        WebkitBackdropFilter: "blur(30px)",
-        backgroundImage: "url(/assets/Header.png)",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
+        background: "transparent",
         boxShadow: "none",
-        zIndex: theme.zIndex.drawer + 1,
       }}
     >
       <Toolbar sx={{ p: 0, px: { xs: 3, sm: 3 } }}>
