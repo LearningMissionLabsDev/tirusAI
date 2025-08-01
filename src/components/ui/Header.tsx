@@ -12,13 +12,13 @@ const Header: React.FC = () => {
 
   return (
     <AppBar
-      position="static"
+      position="fixed"
       sx={{
         background: "transparent",
         boxShadow: "none",
       }}
     >
-      <Toolbar sx={{ p: 0, px: { xs: 3, sm: 3 } }}>
+      <Toolbar sx={{ px: 3, py: 1.4 }}>
         {isSmallScreen ? <HeaderMobile /> : <HeaderDesktop />}
       </Toolbar>
     </AppBar>
