@@ -12,7 +12,7 @@ const HeaderDesktop: React.FC = () => {
       <Box
         component="img"
         src={TirusLogo}
-        alt="Tirus AI Logo"
+        alt={headerData.logoText}
         sx={{
           height: 32,
           width: 125,
@@ -27,9 +27,13 @@ const HeaderDesktop: React.FC = () => {
             key={item}
             color="white"
             sx={{
-              fontSize: theme.typography.body2.fontSize,
-              fontFamily: "sans-serif",
+              ...theme.typography.body2,
+              fontFamily: "Poppins",
               cursor: "pointer",
+              fontWeight: 400,
+              "&:hover": {
+                color: "#e0e0e0",  // Light gray hover effect, closer to white
+              },
             }}
           >
             {item}
