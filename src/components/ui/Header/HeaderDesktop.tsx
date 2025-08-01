@@ -9,13 +9,13 @@ const HeaderDesktop: React.FC = () => {
 
   return (
     <>
-      {/* Replacing Typography with Image */}
       <Box
         component="img"
         src={TirusLogo}
         alt="Tirus AI Logo"
         sx={{
-          height: 40, // Adjust as needed
+          height: 32,
+          width: 125,
           cursor: "pointer",
         }}
         onClick={() => console.log("Logo clicked")}
