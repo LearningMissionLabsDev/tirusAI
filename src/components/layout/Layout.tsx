@@ -11,7 +11,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <Box sx={{ backgroundColor: '#0A0F1C', minHeight: '100vh' }}>
       <Header />
-      <main style={{ padding: '1rem', marginTop: '64px' }}>
+      <main style={{ padding: '1rem' }}>
         {children}
       </main>
     </Box>
