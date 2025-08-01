@@ -9,11 +9,25 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <Box sx={{ backgroundColor: '#0A0F1C', minHeight: '100vh' }}>
+    <Box
+      sx={{
+        backgroundColor: '#0A0F1C',
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+      }}
+    >
       <Header />
-      <main style={{ padding: '1rem' }}>
+      <Box
+        component="main"
+        sx={{
+          padding: '1rem',
+          marginTop: '88px',
+          flexGrow: 1,
+        }}
+      >
         {children}
-      </main>
+      </Box>
     </Box>
   );
 };
