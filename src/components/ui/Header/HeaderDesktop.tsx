@@ -1,32 +1,36 @@
-import { Typography, Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import Button from "../Buttons/Button";
 import headerData from "../../../data/headerData.json";
 import { useTheme } from "@mui/material/styles";
+import TirusLogo from "/assets/TirusLogo.png"; // Correct path based on your folder structure
 
 const HeaderDesktop: React.FC = () => {
   const theme = useTheme();
 
   return (
     <>
-      <Typography
-        fontSize={theme.typography.h3.fontSize}
-        fontWeight="bold"
-        color="white"
+      {/* Replacing Typography with Image */}
+      <Box
+        component="img"
+        src={TirusLogo}
+        alt="Tirus AI Logo"
         sx={{
-          fontFamily: "Poppins, sans-serif",
+          height: 40, // Adjust as needed
           cursor: "pointer",
         }}
         onClick={() => console.log("Logo clicked")}
-      >
-        {headerData.logoText}
-      </Typography>
+      />
 
       <Box sx={{ display: "flex", gap: "48px", flexGrow: 1, justifyContent: "center" }}>
         {headerData.menuItems.map((item: string) => (
           <Typography
             key={item}
             color="white"
-            sx={{ fontSize: theme.typography.body2.fontSize, fontFamily: "sans-serif", cursor: "pointer" }}
+            sx={{
+              fontSize: theme.typography.body2.fontSize,
+              fontFamily: "sans-serif",
+              cursor: "pointer",
+            }}
           >
             {item}
           </Typography>
