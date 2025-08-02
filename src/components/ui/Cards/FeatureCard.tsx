@@ -1,7 +1,13 @@
 import { Box, Typography, Paper } from '@mui/material';
 import FutureCardGradient from '/assets/FutureCardGradient.png';
 
-const FeatureCard = ({ icon, title, subtitle }) => (
+interface FeatureCardProps {
+  icon: React.ReactNode;  // Icon can be any React node (e.g., an icon component)
+  title: string;
+  subtitle: string;
+}
+
+const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, subtitle }) => (
   <Box sx={{ position: 'relative', display: 'flex', justifyContent: 'center', width: 'full' }}>
     <Paper
       sx={{
@@ -21,8 +27,9 @@ const FeatureCard = ({ icon, title, subtitle }) => (
         backgroundImage: `url(${FutureCardGradient})`,
       }}
     >
-      <Box mb={4} sx={{
-      }}>{icon}</Box>
+      <Box mb={4} sx={{}}>
+        {icon}
+      </Box>
       <Typography
         fontFamily="Poppins, sans-serif"
         fontSize="18px"

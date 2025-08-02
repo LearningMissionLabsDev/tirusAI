@@ -1,6 +1,18 @@
 import { Box, Typography, Paper, Button } from '@mui/material';
 
-const SmartCard = ({
+interface SmartCardProps {
+  title: string;
+  description: string;
+  buttonText: string;
+  image: string;
+  bderColor: string;
+  btnTextColor: string;
+  bgColor: string | undefined;  // This can be a color or an image URL (string)
+  marginRight?: string | number;  // Optional marginRight
+  inverted?: boolean;  // Optional, defaults to false
+}
+
+const SmartCard: React.FC<SmartCardProps> = ({
   title,
   description,
   buttonText,
@@ -15,10 +27,10 @@ const SmartCard = ({
     <Paper
       elevation={3}
       sx={{
-        px:6,
-        py:8,
-        width:'100%',
-        maxWidth:'1100px',
+        px: 6,
+        py: 8,
+        width: '100%',
+        maxWidth: '1100px',
         minHeight: '180px',
         borderRadius: '20px',
         border: inverted ? `2px solid ${bderColor}` : 'none',
@@ -26,14 +38,13 @@ const SmartCard = ({
         flexDirection: 'column',
         ...(typeof bgColor === 'string' && bgColor.endsWith('.png')
           ? {
-            backgroundImage: `url(${bgColor})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }
+              backgroundImage: `url(${bgColor})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+            }
           : {
-            background: bgColor,
-          }),
-
+              background: bgColor,
+            }),
       }}
     >
       <Box
@@ -46,9 +57,9 @@ const SmartCard = ({
           gap: 2,
         }}
       >
-        <Box sx={{ flex: 1, maxWidth:'670px' }}>
+        <Box sx={{ flex: 1, maxWidth: '670px' }}>
           <Typography
-            fontSize={{sm: '20px', md: '24px', lg: '36px'}}
+            fontSize={{ sm: '20px', md: '24px', lg: '36px' }}
             sx={{
               fontWeight: 600,
               mb: 3,
@@ -66,15 +77,18 @@ const SmartCard = ({
             ))}
           </Typography>
 
-          <Typography fontSize='18px' sx={{
-            fontWeight: 400,
-            mb: 2,
-            lineHeight: 1.5,
-            fontFamily: '"Roboto Condensed", sans-serif',
-            letterSpacing: '0.5px',
-            color: btnTextColor,
-            maxWidth: '700px'
-          }}>
+          <Typography
+            fontSize="18px"
+            sx={{
+              fontWeight: 400,
+              mb: 2,
+              lineHeight: 1.5,
+              fontFamily: '"Roboto Condensed", sans-serif',
+              letterSpacing: '0.5px',
+              color: btnTextColor,
+              maxWidth: '700px',
+            }}
+          >
             {description}
           </Typography>
           <Button
@@ -82,7 +96,7 @@ const SmartCard = ({
             sx={{
               py: '12px',
               px: '24px',
-              fontSize:"16px",
+              fontSize: '16px',
               fontFamily: '"Arial", sans-serif',
               borderRadius: '100px',
               borderColor: bderColor,
@@ -97,7 +111,7 @@ const SmartCard = ({
             {buttonText}
           </Button>
         </Box>
-         <Box
+        <Box
           component="img"
           src={image}
           alt={title}
