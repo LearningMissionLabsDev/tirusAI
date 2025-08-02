@@ -1,7 +1,12 @@
 import { Box, Typography } from '@mui/material';
 import StepBack from '/assets/StepBack.png';
 
-const StepItem = ({ number, text }) => (
+interface StepItemProps {
+  number: string;
+  text: string;
+}
+
+const StepItem: React.FC<StepItemProps> = ({ number, text }) => (
   <Box
     sx={{
       textAlign: 'center',

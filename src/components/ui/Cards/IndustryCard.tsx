@@ -1,9 +1,16 @@
 import { Box, Typography, useTheme } from '@mui/material';
 
-const Card = ({ titleLine1, titleLine2, image }) => {
+interface CardProps {
+  titleLine1: string;
+  titleLine2: string;
+  image: string;
+}
+
+const Card: React.FC<CardProps> = ({ titleLine1, titleLine2, image }) => {
   const theme = useTheme();
+
   return (
-    <Box sx={{ width: '100%', }}>
+    <Box sx={{ width: '100%' }}>
       <Box sx={{ position: 'relative', width: '384px', height: '273px' }}>
         <Box
           sx={{
