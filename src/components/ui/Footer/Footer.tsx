@@ -1,7 +1,8 @@
-import { Box, Container, Stack, Typography } from "@mui/material";
+import { Box, Container, Stack, Typography, useTheme } from "@mui/material";
 import footerData from '../../../data/footerData.json';
+import headerData from "../../../data/headerData.json";
+import TirusLogo from "/assets/TirusLogo.png";
 
-// Define types for the footer data structure
 interface NavLink {
     title: string;
     href: string;
@@ -14,7 +15,6 @@ interface SocialLink {
 }
 
 interface FooterData {
-    brandName: string;
     navLinks: NavLink[];
     socialLinks: SocialLink[];
     copyright: string;
@@ -22,8 +22,8 @@ interface FooterData {
 
 const Footer = () => {
     // Using the footerData which is assumed to be typed from JSON
-    const { brandName, navLinks, socialLinks, copyright }: FooterData = footerData;
-
+    const { navLinks, socialLinks, copyright }: FooterData = footerData;
+    const theme = useTheme();
     return (
         <Box
             sx={{
@@ -48,25 +48,22 @@ const Footer = () => {
                         spacing={{ xs: 2, md: 6 }}
                         alignItems="center"
                     >
-                        <Typography
-                            component="div"
+                        <Box
+                            component="img"
+                            src={TirusLogo}
+                            alt={headerData.logoText}
                             sx={{
-                                fontFamily: 'Poppins, sans-serif',
-                                fontWeight: 600,
-                                fontSize: '2rem',
-                                lineHeight: '2rem',
-                                color: '#ffffff',
-                                textTransform: 'capitalize',
-                                textAlign: 'center',
+                                height: 32,
+                                width: 125,
+                                cursor: "pointer",
                             }}
-                        >
-                            {brandName}
-                        </Typography>
+                            onClick={() => console.log("Logo clicked")}
+                        />
                     </Stack>
 
                     <Stack
                         direction={'row'}
-                        spacing={{ xs: 4 }}
+                        spacing={{ sm: 3, xs: 3, md: 4, lg: 5, xl: 6 }}
                         alignItems="center"
                         justifyContent="center"
                         textAlign="center"
@@ -77,9 +74,9 @@ const Footer = () => {
                                 component="a"
                                 href={link.href}
                                 sx={{
-                                    fontFamily: 'sans-serif',
+                                    ...theme.typography.body2,
+                                    fontFamily: 'Poppins, sans-serif',
                                     fontWeight: 400,
-                                    fontSize: '1.125rem',
                                     color: 'white',
                                     textDecoration: 'none',
                                     "&:hover": {
@@ -135,9 +132,9 @@ const Footer = () => {
             >
                 <Typography
                     sx={{
-                        fontFamily: 'sans-serif',
+                        ...theme.typography.body2,
+                        fontFamily: 'Poppins, sans-serif',
                         fontWeight: 400,
-                        fontSize: '1.125rem',
                         textAlign: 'center',
                     }}
                 >

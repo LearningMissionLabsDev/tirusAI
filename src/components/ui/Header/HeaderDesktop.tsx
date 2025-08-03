@@ -28,7 +28,7 @@ const HeaderDesktop: React.FC = () => {
             color="white"
             sx={{
               ...theme.typography.body2,
-              fontFamily: "Poppins",
+              fontFamily: "Poppins, sans-serif",
               cursor: "pointer",
               fontWeight: 400,
               "&:hover": {
