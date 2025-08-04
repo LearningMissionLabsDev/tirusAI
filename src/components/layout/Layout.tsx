@@ -2,6 +2,7 @@ import React from 'react';
 import type { ReactNode } from 'react';
 import { Box } from '@mui/material';
 import Header from '../ui/Header';
+import Footer from '../ui/Footer/Footer';
 
 interface LayoutProps {
   children: ReactNode;
@@ -28,6 +29,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       >
         {children}
       </Box>
+      <Footer/>
     </Box>
   );
 };
