@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Typography } from "@mui/material";
 
 interface ContactCardProps {
-  logo: string;
+  logo: string; // PNG or SVG path
   title: string;
   description: string;
   link?: string;
@@ -12,8 +12,9 @@ const ContactCard: React.FC<ContactCardProps> = ({ logo, title, description, lin
   return (
     <Box
       sx={{
-        width: 250,
-        height: 150,
+        width: 384,
+        height: 200,
+        maxHeight: 198,
         border: "1px solid rgba(255, 255, 255, 0.2)",
         borderRadius: "12px",
         display: "flex",
@@ -34,10 +35,10 @@ const ContactCard: React.FC<ContactCardProps> = ({ logo, title, description, lin
         src={logo}
         alt={title}
         sx={{
-          width: 30,
-          height: 30,
-          filter: "invert(1)",
+          width: 33,
+          height: 33,
         }}
+        pb={2}
       />
       <Typography
         sx={{
