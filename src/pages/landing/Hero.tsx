@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography, Button, Divider } from "@mui/material";
+import { Box, Typography, Button } from "@mui/material";
 import PurpleGradient from "/assets/HeroGradient.png"; // Make sure the path is correct
 
 const Hero: React.FC = () => {
