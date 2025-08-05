@@ -1,102 +1,95 @@
+import React from 'react';
 import { Box, Typography, useTheme } from '@mui/material';
+import TirusEducation from "/assets/TirusEducation.png";
 
-interface CardProps {
-  titleLine1: string;
-  titleLine2: string;
-  image: string;
-}
-
-const Card: React.FC<CardProps> = ({ titleLine1, titleLine2, image }) => {
+const IndustryCard: React.FC = () => {
   const theme = useTheme();
 
   return (
-    <Box sx={{ width: '100%' }}>
-      <Box sx={{ position: 'relative', width: '384px', height: '273px' }}>
+    <Box
+      sx={{
+        display: 'flex',
+        justifyContent: 'center',
+        width: '100%',
+      }}
+    >
+      <Box
+        sx={{
+          width: { sm: 384, md: 384, lg: 400, xl: 430,   },
+          borderRadius: '10px',
+          backgroundColor: '#ffffff14',
+          position: 'relative',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          px: '2px',
+          py: '2px',
+          overflow: 'hidden',
+        }}
+      >
         <Box
           sx={{
             position: 'absolute',
-            width: '336px',
-            height: '263px',
-            background: 'linear-gradient(90deg, #2AD5CD, #7A02B9)',
-            borderRadius: '20px',
-            top: 10,
-            left: 24,
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: 5,
+            backgroundImage: 'linear-gradient(90deg, transparent 0%, #5c33bc 50%, transparent 100%)',
+            backgroundSize: '100% 100%',
+            backgroundRepeat: 'no-repeat',
             zIndex: 1,
-            filter: 'blur(2px)',
           }}
         />
+
         <Box
           sx={{
-            position: 'absolute',
-            width: '384px',
-            height: '263px',
-            borderRadius: '20px',
-            padding: '2px',
-            background: 'linear-gradient(90deg, #2ad5cd33, #7a02b933)',
+            width: 'calc(100% - 6px)',
+            minHeight: 128,
+            maxHeight: '100%',
+            borderRadius: '10px',
+            backgroundColor: '#0a0f1c',
+            position: 'relative',
             zIndex: 2,
-            boxSizing: 'border-box',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'start',
+            px: '32px',
+            py: '24px',
+            boxShadow: 'inset 0 0 15px rgba(255, 255, 255, 0.06)',
           }}
         >
-          <Box
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+            <Box
+              component="img"
+              src={TirusEducation}
+              alt="Tirus in Education"
+              sx={{ width: 24, height: 24 }}
+            />
+            <Typography
+              sx={{
+                ...theme.typography.subtitle1,
+                fontWeight: 600,
+                color: 'white',
+                fontFamily: 'Poppins, sans-serif',
+              }}
+            >
+              Tirus in Education
+            </Typography>
+          </Box>
+
+          <Typography
             sx={{
-              width: '100%',
-              height: '100%',
-              backgroundColor: '#000',
-              borderRadius: '18px',
-              position: 'relative',
-              overflow: 'hidden',
+              mt: 3,
+              ...theme.typography.body2,
+              color: 'rgba(255,255,255,0.8)',
+              fontFamily: 'Poppins, sans-serif',
             }}
           >
-            <Typography
-              color="white"
-              fontFamily="Poppins, sans-serif"
-              sx={{
-                position: 'absolute',
-                top: 24,
-                left: 24,
-                mb: 24,
-                textAlign: 'left',
-                lineHeight: 1.3,
-                zIndex: 2,
-                fontSize: theme.typography.h5.fontSize,
-              }}
-            >
-              {titleLine1}
-              <br />
-              {titleLine2}
-            </Typography>
-
-            <Box
-              sx={{
-                position: 'absolute',
-                top: 116,
-                right: 16,
-                width: '166px',
-                height: '166px',
-                zIndex: 2,
-                transition: 'transform 0.4s ease',
-                transformOrigin: 'center',
-                '&:hover': {
-                  transform: 'rotate(-25deg)',
-                },
-              }}
-            >
-              <Box
-                component="img"
-                src={image}
-                alt={`${titleLine1} ${titleLine2}`}
-                sx={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'contain',
-                }}
-              />
-            </Box>
-          </Box>
+            Create a customizable educational platform tailored to your specific needs.
+          </Typography>
         </Box>
-      </Box>
-    </Box>
+      </Box></Box>
   );
 };
 
-export default Card;
+export default IndustryCard;
