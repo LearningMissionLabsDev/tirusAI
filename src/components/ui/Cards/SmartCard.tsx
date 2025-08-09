@@ -1,129 +1,123 @@
-import { Box, Typography, Paper, Button } from '@mui/material';
+import React from 'react';
+import { Box, Typography, useMediaQuery, useTheme } from '@mui/material';
 
 interface SmartCardProps {
   title: string;
   description: string;
-  buttonText: string;
   image: string;
-  bderColor: string;
-  btnTextColor: string;
-  bgColor: string | undefined;  // This can be a color or an image URL (string)
-  marginRight?: string | number;  // Optional marginRight
-  inverted?: boolean;  // Optional, defaults to false
 }
 
 const SmartCard: React.FC<SmartCardProps> = ({
   title,
   description,
-  buttonText,
-  image,
-  bderColor,
-  btnTextColor,
-  bgColor,
-  marginRight,
-  inverted = false,
-}) => {
+  image, }) => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+
   return (
-    <Paper
-      elevation={3}
+    <Box
       sx={{
-        px: 6,
-        py: 8,
         width: '100%',
-        maxWidth: '1100px',
-        minHeight: '180px',
-        borderRadius: '20px',
-        border: inverted ? `2px solid ${bderColor}` : 'none',
         display: 'flex',
-        flexDirection: 'column',
-        ...(typeof bgColor === 'string' && bgColor.endsWith('.png')
-          ? {
-              backgroundImage: `url(${bgColor})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }
-          : {
-              background: bgColor,
-            }),
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#0A0F1C',
       }}
     >
       <Box
         sx={{
-          flex: 1,
+          width: '100%',
+          maxWidth: 1062,
+          height: { xs: 'auto', sm: 'auto', md: 215 },
           display: 'flex',
-          flexDirection: { xs: 'column', sm: 'row' },
-          alignItems: 'center',
+          flexDirection: isMobile ? 'column' : 'row',
           justifyContent: 'space-between',
-          gap: 2,
+          alignItems: 'center',
+          gap: 3,
+          p: { xs: 3, sm: 3, md: 4, lg: 8, xl: 8 },
+          mx: 3,
+          borderRadius: '20px',
+          border: '5px solid transparent',
+          backgroundImage: `
+  linear-gradient(#0A0F1C, #0A0F1C),
+  linear-gradient(
+    135deg,
+    #543d9eff 0%,
+    #282E3A 8%,
+    #282E3A 92%,
+    #543d9eff 100%
+  )
+    `,
+          backgroundOrigin: "border-box",
+          backgroundClip: "padding-box, border-box, border-box",
+          WebkitBackgroundClip: "padding-box, border-box, border-box",
+          WebkitBoxDecorationBreak: "clone",
         }}
       >
-        <Box sx={{ flex: 1, maxWidth: '670px' }}>
-          <Typography
-            fontSize={{ sm: '20px', md: '24px', lg: '36px' }}
-            sx={{
-              fontWeight: 600,
-              mb: 3,
-              fontFamily: '"Roboto Condensed", sans-serif',
-              letterSpacing: '0.5px',
-              color: btnTextColor,
-              lineHeight: 1.5,
-            }}
-          >
-            {title.split('\n').map((line, idx) => (
-              <span key={idx}>
-                {line}
-                <br />
-              </span>
-            ))}
-          </Typography>
-
-          <Typography
-            fontSize="18px"
-            sx={{
-              fontWeight: 400,
-              mb: 2,
-              lineHeight: 1.5,
-              fontFamily: '"Roboto Condensed", sans-serif',
-              letterSpacing: '0.5px',
-              color: btnTextColor,
-              maxWidth: '700px',
-            }}
-          >
-            {description}
-          </Typography>
-          <Button
-            variant="outlined"
-            sx={{
-              py: '12px',
-              px: '24px',
-              fontSize: '16px',
-              fontFamily: '"Arial", sans-serif',
-              borderRadius: '100px',
-              borderColor: bderColor,
-              color: btnTextColor,
-              '&:hover': {
-                backgroundColor: inverted
-                  ? 'rgba(255,255,255,0.1)'
-                  : 'rgba(0,0,0,0.04)',
-              },
-            }}
-          >
-            {buttonText}
-          </Button>
-        </Box>
+        {/* Left: Text */}
         <Box
-          component="img"
-          src={image}
-          alt={title}
           sx={{
-            maxWidth: '288px',
-            maxHeight: '250px',
-            objectFit: 'contain',
-            marginRight: marginRight,
+            flex: 1,
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
           }}
-        />
+        >
+          <Typography
+            sx={{
+              ...theme.typography.h3,
+              fontFamily: 'Poppins, sans-serif',
+              fontWeight: 600,
+              lineHeight: 1.4,
+              color: '#FFFFFF',
+              mb: 3,
+              whiteSpace: 'pre-line'
+            }}
+          >
+            {title}
+          </Typography>
+          <Box sx={{
+            width: '100%',
+          }}>
+            <Typography
+              sx={{
+                ...theme.typography.body1,
+                fontFamily: 'Poppins, sans-serif',
+                fontWeight: 400,
+                lineHeight: 1.6,
+                color: '#FFFFFF',
+                minWidth: { xs: 230, sm: 300, md: 500, lg: 610, xl: 610 },
+                maxWidth: 610,
+              }}
+            >
+              {description}
+            </Typography>
+          </Box>
+        </Box>
+
+        {/* Right: Image */}
+        <Box
+          sx={{
+            flex: 1,
+            display: 'flex',
+            justifyContent: { xs: 'center', sm: 'center', md: 'flex-end' },
+            alignItems: { xs: 'center', sm: 'center', md: 'flex-end' },
+            mr: { xs: 0, sm: 0, md: 6 }
+          }}
+        >
+          <Box
+            component="img"
+            src={image}
+            alt={title}
+            sx={{
+              width: { xs: 260, sm: 260, md: 260, lg: 281, xl: 281 },
+              maxWidth: '100%',
+              height: 'auto',
+            }}
+          />
+        </Box>
       </Box>
-    </Paper>
+    </Box>
   );
 };
 

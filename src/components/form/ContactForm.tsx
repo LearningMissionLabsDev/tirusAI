@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Box, Typography, TextField, Button } from "@mui/material";
+import { Box, Typography, TextField, useTheme } from "@mui/material";
+import ContactButton from "../ui/Buttons/ContactButton";
 
 interface ContactFormCardProps {
     title: string;
@@ -9,6 +10,7 @@ const ContactForm: React.FC<ContactFormCardProps> = ({ title }) => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
+    const theme = useTheme();
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -18,38 +20,81 @@ const ContactForm: React.FC<ContactFormCardProps> = ({ title }) => {
     return (
         <Box
             sx={{
-                backgroundColor: "transparent",  // Make background transparent
-                padding: "30px",  // Adjust padding for better form spacing
-                border: "1px solid rgba(255, 255, 255, 0.2)",
-                borderRadius: "12px",
+                position: "relative",
+                px: { xs: "30px", sm: "30px", md: "25px", lg: "32px", xl: "25px" },
+                py: { xs: "64px", sm: "64px", md: "64px", lg: "64px", xl: "32px" },
+                border: "2px solid transparent",
+                borderRadius: "20px",
                 boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "center",
                 width: "100%",
-                maxWidth: "800px",
+                maxWidth: "724px",
+                height: "100%",
                 maxHeight: "424px",
                 textAlign: "center",
-                mx: 0,
-                marginTop: "30px",  // Space from the previous section
+                overflow: "hidden",
+                backgroundImage: `
+  linear-gradient(#0A0F1C, #0A0F1C),
+  linear-gradient(
+    to left,
+    #303F6E 25%,
+    #282E3A 80%
+  )
+    `,
+                backgroundOrigin: "border-box",
+                backgroundClip: "padding-box, border-box, border-box",
+                WebkitBackgroundClip: "padding-box, border-box, border-box",
+                WebkitBoxDecorationBreak: "clone",
             }}
         >
-            <Typography variant="h6" sx={{ fontWeight: 600, color: "#fff", marginBottom: "12px" }}>
+            <Typography sx={{ ...theme.typography.body1, fontWeight: 400, fontFamily: "Poppins, sans-serif", color: "#FFFFFFE6", marginBottom: 4, whiteSpace: 'pre-line', }}>
                 {title}
             </Typography>
-
-            <form onSubmit={handleSubmit} style={{ width: "100%" }}>
+            <Box
+                component="form"
+                onSubmit={handleSubmit}
+                sx={{ width: { xs: '100%', sm: '100%', md: '100%', lg: '666px', xl: '666px' } }}
+            >
                 <TextField
                     label="Your Name"
                     variant="outlined"
                     fullWidth
                     sx={{
                         marginBottom: "12px",
-                        input: { color: "white" },
-                        "& .MuiInputLabel-root": { color: "white" },  // Make label text white
-                        "& .MuiOutlinedInput-root": { border: "1px solid rgba(255, 255, 255, 0.2)", borderRadius: "20px" },
-                        "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline": { borderColor: "#4A90E2" }, // Change on hover
+                        input: { color: "#FFFFFFE6" },
+                        "& .MuiInputLabel-root": {
+                            ...theme.typography.body2, color: "#FFFFFFB3", fontFamily: "Poppins, sans-serif", fontWeight: 400, lineHeight: 1.5, "&.Mui-focused": {
+                                color: "#FFFFFFB3 !important",
+                            }, padding: "0 10px",
+                        },
+                        "& .MuiOutlinedInput-root": {
+                            borderRadius: "20px",
+                            "& fieldset": {
+                                borderColor: "#171C28",
+                            },
+                            "&:hover fieldset": {
+                                borderColor: "#282E3A",
+                            },
+                            "&.Mui-focused fieldset": {
+                                borderColor: "#282E3A",
+                            },
+                        },
+                        "& .MuiOutlinedInput-notchedOutline": {
+                            borderWidth: "1px"
+                        },
+                        "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
+                            borderColor: "#282E3A !important"
+                        },
+                        "& .MuiOutlinedInput-root.Mui-focused": {
+                            boxShadow: "none",
+                        },
+                        "& .MuiOutlinedInput-input": {
+                            padding: "14px 24px",
+                            lineHeight: 0,
+                        },
                     }}
                     value={name}
                     onChange={(e) => setName(e.target.value)}
@@ -60,10 +105,37 @@ const ContactForm: React.FC<ContactFormCardProps> = ({ title }) => {
                     fullWidth
                     sx={{
                         marginBottom: "12px",
-                        input: { color: "white" },
-                        "& .MuiInputLabel-root": { color: "white" },  // Make label text white
-                        "& .MuiOutlinedInput-root": { border: "1px solid rgba(255, 255, 255, 0.2)", borderRadius: "20px" },
-                        "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline": { borderColor: "#4A90E2" }, // Change on hover
+                        input: { color: "#FFFFFFE6" },
+                        "& .MuiInputLabel-root": {
+                            ...theme.typography.body2, color: "#FFFFFFB3", fontFamily: "Poppins, sans-serif", fontWeight: 400, lineHeight: 1.5, "&.Mui-focused": {
+                                color: "#FFFFFFB3 !important",
+                            }, padding: "0 10px",
+                        },
+                        "& .MuiOutlinedInput-root": {
+                            borderRadius: "20px",
+                            "& fieldset": {
+                                borderColor: "#171C28",
+                            },
+                            "&:hover fieldset": {
+                                borderColor: "#282E3A",
+                            },
+                            "&.Mui-focused fieldset": {
+                                borderColor: "#282E3A",
+                            },
+                        },
+                        "& .MuiOutlinedInput-notchedOutline": {
+                            borderWidth: "1px",
+                        },
+                        "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
+                            borderColor: "#282E3A !important",
+                        },
+                        "& .MuiOutlinedInput-root.Mui-focused": {
+                            boxShadow: "none",
+                        },
+                        "& .MuiOutlinedInput-input": {
+                            padding: "14px 24px",
+                            lineHeight: 0,
+                        },
                     }}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -72,31 +144,49 @@ const ContactForm: React.FC<ContactFormCardProps> = ({ title }) => {
                     label="Message"
                     variant="outlined"
                     fullWidth
-                    multiline
-                    rows={1}
                     sx={{
                         marginBottom: "32px",
-                        input: { color: "white" },
-                        "& .MuiInputLabel-root": { color: "white" },  // Make label text white
-                        "& .MuiOutlinedInput-root": { border: "1px solid rgba(255, 255, 255, 0.2)", borderRadius: "20px" },
-                        "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline": { borderColor: "#4A90E2" }, // Change on hover
+                        input: { color: "#FFFFFFE6" },
+                        "& .MuiInputLabel-root": {
+                            ...theme.typography.body2, color: "#FFFFFFB3", fontFamily: "Poppins, sans-serif", fontWeight: 400, lineHeight: 1.5, "&.Mui-focused": {
+                                color: "#FFFFFFB3 !important"
+                            }, padding: "0 10px"
+                        },
+                        "& .MuiOutlinedInput-root": {
+                            borderRadius: "20px",
+                            "& fieldset": {
+                                borderColor: "#171C28",
+                            },
+                            "&:hover fieldset": {
+                                borderColor: "#282E3A",
+                            },
+                            "&.Mui-focused fieldset": {
+                                borderColor: "#282E3A",
+                            },
+                        },
+                        "& .MuiOutlinedInput-notchedOutline": {
+                            borderWidth: "1px",
+                        },
+                        "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
+                            borderColor: "#282E3A !important",
+                        },
+                        "& .MuiOutlinedInput-root.Mui-focused": {
+                            boxShadow: "none",
+                        },
+                        "& .MuiOutlinedInput-input": {
+                            padding: "14px 24px",
+                            lineHeight: 0,
+                        },
                     }}
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                 />
-                <Button
+                <ContactButton
+                    label="Send"
+                    onClick={() => console.log("Submitted")}
                     type="submit"
-                    variant="contained"
-                    sx={{
-                        width: "100%",
-                        backgroundColor: "#4A90E2",  // Button color
-                        "&:hover": { backgroundColor: "#3a7cd1" },
-                        padding: "12px 0", // Adjust padding
-                    }}
-                >
-                    Send
-                </Button>
-            </form>
+                />
+            </Box>
         </Box>
     );
 };
