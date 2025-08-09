@@ -13,6 +13,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import Button from "../Buttons/Button";
 import headerData from "../../../data/headerData.json";
 import { useTheme } from "@mui/material/styles";
+import TirusLogo from "/assets/TirusLogo.png";
 
 const HeaderMobile: React.FC = () => {
   const theme = useTheme();
@@ -28,22 +29,18 @@ const HeaderMobile: React.FC = () => {
         >
           <MenuIcon sx={{ fontSize: "30.5px", color: "white" }} />
         </IconButton>
-        <Typography
-          fontSize={22}
-          fontWeight="bold"
-          color="white"
-          sx={{
-            fontFamily: "Poppins, sans-serif",
-            cursor: "pointer",
-            textAlign: "left",
-            width: "100%",
-            flexGrow: 1,
-            ml: 1.5,
-          }}
-          onClick={() => console.log("Logo clicked")}
-        >
-          {headerData.logoText}
-        </Typography>
+         <Box
+        component="img"
+        src={TirusLogo}
+        alt={headerData.logoText}
+        sx={{
+          height: 32,
+          width: 125,
+          cursor: "pointer",
+          ml: 1,
+        }}
+        onClick={() => console.log("Logo clicked")}
+      />
       </Box>
 
       <Box sx={{ flex: "1 0 auto", display: "flex", justifyContent: "flex-end" }}>
