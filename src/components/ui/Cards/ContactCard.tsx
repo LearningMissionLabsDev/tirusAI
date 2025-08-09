@@ -2,13 +2,13 @@ import React from "react";
 import { Box, Typography, useTheme } from "@mui/material";
 
 interface ContactCardProps {
-  logo: string;
+  icon: string;
   title: string;
   description: string;
   link?: string;
 }
 
-const ContactCard: React.FC<ContactCardProps> = ({ logo, title, description, link }) => {
+const ContactCard: React.FC<ContactCardProps> = ({ icon, title, description, link }) => {
   const theme = useTheme();
 
   return (
@@ -47,7 +47,7 @@ const ContactCard: React.FC<ContactCardProps> = ({ logo, title, description, lin
     >
       <Box
         component="img"
-        src={logo}
+        src={icon}
         alt={title}
         sx={{
           width: 33,

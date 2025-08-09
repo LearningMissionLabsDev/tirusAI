@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import { Box, Typography, TextField, useTheme } from "@mui/material";
 import ContactButton from "../ui/Buttons/ContactButton";
+type Field = { label: string };
 
 interface ContactFormCardProps {
     title: string;
+    submitText: string;
+    fields: Field[];
 }
 
-const ContactForm: React.FC<ContactFormCardProps> = ({ title }) => {
+const ContactForm: React.FC<ContactFormCardProps> = ({ title, fields, submitText }) => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
@@ -59,48 +62,48 @@ const ContactForm: React.FC<ContactFormCardProps> = ({ title }) => {
                 sx={{ width: { xs: '100%', sm: '100%', md: '100%', lg: '666px', xl: '666px' } }}
             >
                 <TextField
-                    label="Your Name"
-                    variant="outlined"
-                    fullWidth
-                    sx={{
-                        marginBottom: "12px",
-                        input: { color: "#FFFFFFE6" },
-                        "& .MuiInputLabel-root": {
-                            ...theme.typography.body2, color: "#FFFFFFB3", fontFamily: "Poppins, sans-serif", fontWeight: 400, lineHeight: 1.5, "&.Mui-focused": {
-                                color: "#FFFFFFB3 !important",
-                            }, padding: "0 10px",
+                label={fields[0]?.label}
+                variant="outlined"
+                fullWidth
+                sx={{
+                    marginBottom: "12px",
+                    input: { color: "#FFFFFFE6" },
+                    "& .MuiInputLabel-root": {
+                        ...theme.typography.body2, color: "#FFFFFFB3", fontFamily: "Poppins, sans-serif", fontWeight: 400, lineHeight: 1.5, "&.Mui-focused": {
+                            color: "#FFFFFFB3 !important",
+                        }, padding: "0 10px",
+                    },
+                    "& .MuiOutlinedInput-root": {
+                        borderRadius: "20px",
+                        "& fieldset": {
+                            borderColor: "#171C28",
                         },
-                        "& .MuiOutlinedInput-root": {
-                            borderRadius: "20px",
-                            "& fieldset": {
-                                borderColor: "#171C28",
-                            },
-                            "&:hover fieldset": {
-                                borderColor: "#282E3A",
-                            },
-                            "&.Mui-focused fieldset": {
-                                borderColor: "#282E3A",
-                            },
+                        "&:hover fieldset": {
+                            borderColor: "#282E3A",
                         },
-                        "& .MuiOutlinedInput-notchedOutline": {
-                            borderWidth: "1px"
+                        "&.Mui-focused fieldset": {
+                            borderColor: "#282E3A",
                         },
-                        "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
-                            borderColor: "#282E3A !important"
-                        },
-                        "& .MuiOutlinedInput-root.Mui-focused": {
-                            boxShadow: "none",
-                        },
-                        "& .MuiOutlinedInput-input": {
-                            padding: "14px 24px",
-                            lineHeight: 0,
-                        },
-                    }}
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
+                    },
+                    "& .MuiOutlinedInput-notchedOutline": {
+                        borderWidth: "1px"
+                    },
+                    "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
+                        borderColor: "#282E3A !important"
+                    },
+                    "& .MuiOutlinedInput-root.Mui-focused": {
+                        boxShadow: "none",
+                    },
+                    "& .MuiOutlinedInput-input": {
+                        padding: "14px 24px",
+                        lineHeight: 0,
+                    },
+                }}
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 />
                 <TextField
-                    label="Email Address"
+                    label={fields[1]?.label}
                     variant="outlined"
                     fullWidth
                     sx={{
@@ -141,7 +144,7 @@ const ContactForm: React.FC<ContactFormCardProps> = ({ title }) => {
                     onChange={(e) => setEmail(e.target.value)}
                 />
                 <TextField
-                    label="Message"
+                    label={fields[2]?.label}
                     variant="outlined"
                     fullWidth
                     sx={{
@@ -182,7 +185,7 @@ const ContactForm: React.FC<ContactFormCardProps> = ({ title }) => {
                     onChange={(e) => setMessage(e.target.value)}
                 />
                 <ContactButton
-                    label="Send"
+                    label={submitText}
                     onClick={() => console.log("Submitted")}
                     type="submit"
                 />

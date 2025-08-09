@@ -1,13 +1,16 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
 
-interface StepItemProps {
-  text?: string;
+interface StepItemCardProps {
   leftImg?: string;
   rightImg?: string;
+  text?: string;
+  alt?: string;
 }
 
-const StepItem: React.FC<StepItemProps> = ({ leftImg, rightImg, text = "We will work with you to identify and analyze your specific business needs", }) => {
+const StepItem: React.FC<StepItemCardProps> = ({
+  text, leftImg, rightImg, alt
+}) => {
   return (
     <Box
       component="main"
@@ -42,18 +45,8 @@ const StepItem: React.FC<StepItemProps> = ({ leftImg, rightImg, text = "We will 
             pointerEvents: "none",
           }}
         >
-          <Box
-            component="img"
-            src={leftImg}
-            alt="0"
-            sx={{ width: 56, height: "auto" }}
-          />
-          <Box
-            component="img"
-            src={rightImg}
-            alt="1"
-            sx={{ width: 56, height: "auto" }}
-          />
+          <Box component="img" src={leftImg} alt={alt} />
+          <Box component="img" src={rightImg} alt={alt} />
         </Box>
 
         {/* Glass Card */}
@@ -73,7 +66,7 @@ const StepItem: React.FC<StepItemProps> = ({ leftImg, rightImg, text = "We will 
             zIndex: 2,
             background: "rgb(10 15 28 / 80%)",
             border: "1px solid rgba(255, 255, 255, 0.05)",
-            backdropFilter: "blur(50px)",
+            backdropFilter: "blur(20px)",
           }}
         >
           <Typography
@@ -89,6 +82,6 @@ const StepItem: React.FC<StepItemProps> = ({ leftImg, rightImg, text = "We will 
       </Box>
     </Box>
   );
-}
+};
 
 export default StepItem;
