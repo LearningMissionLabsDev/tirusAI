@@ -1,17 +1,17 @@
 [
     {
-        "titleLine1": "Tirus in",
-        "titleLine2": "Education",
-        "image": "/assets/education.png"
+        "title": "Tirus in Education",
+        "description": "Create a customizable educational \nplatform tailored to your specific needs.",
+        "icon": "/assets/TirusEducation.png"
     },
     {
-        "titleLine1": "Tirus in",
-        "titleLine2": "Medicine",
-        "image": "/assets/medicine.png"
+        "title": "Tirus in Medicine",
+        "description": "Combine data from multiple complex \nhealthcare software systems into a \nsingle, cohesive information platform - \nstreamlining workflows and enhancing \nthe efficiency of patient care.",
+        "icon": "/assets/TirusMedicine.png"
     },
     {
-        "titleLine1": "Tirus in",
-        "titleLine2": "Real Estate",
-        "image": "/assets/real-estate.png"
+        "title": "Tirus in Automotive",
+        "description": "Increase your shop’s repair throughput \nby saving valuable time on routine, \ntime-consuming tasks.",
+        "icon": "/assets/TirusAutomotive.png"
     }
 ]
