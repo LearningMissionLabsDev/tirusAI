@@ -1,33 +1,48 @@
 import React from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, useTheme } from "@mui/material";
 
 interface ContactCardProps {
-  logo: string; // PNG or SVG path
+  logo: string;
   title: string;
   description: string;
   link?: string;
 }
 
 const ContactCard: React.FC<ContactCardProps> = ({ logo, title, description, link }) => {
+  const theme = useTheme();
+
   return (
     <Box
       sx={{
-        width: 384,
-        height: 200,
-        maxHeight: 198,
-        border: "1px solid rgba(255, 255, 255, 0.2)",
-        borderRadius: "12px",
+        width: {
+          xs: "100%",
+        },
+        height: "198px",
+        maxHeight: 196,
+        border: "2px solid transparent",
+        borderRadius: "20px",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
         gap: 1,
-        background: "transparent",
         transition: "all 0.3s ease",
         "&:hover": {
-          borderColor: "rgba(255, 255, 255, 0.4)",
+          borderColor: "rgba(255, 255, 255, 0.01)",
           transform: "translateY(-4px)",
         },
+        backgroundImage: `
+  linear-gradient(#0A0F1C, #0A0F1C),
+  linear-gradient(
+    to right,
+    #303F6E 25%,
+    #282E3A 80%
+  )
+    `,
+        backgroundOrigin: "border-box",
+        backgroundClip: "padding-box, border-box, border-box",
+        WebkitBackgroundClip: "padding-box, border-box, border-box",
+        WebkitBoxDecorationBreak: "clone",
       }}
     >
       <Box
@@ -42,10 +57,10 @@ const ContactCard: React.FC<ContactCardProps> = ({ logo, title, description, lin
       />
       <Typography
         sx={{
+          ...theme.typography.body1,
           fontFamily: "Poppins, sans-serif",
-          fontSize: "14px",
           fontWeight: 500,
-          color: "white",
+          color: "#FFFFFFE6",
         }}
       >
         {title}
@@ -57,9 +72,10 @@ const ContactCard: React.FC<ContactCardProps> = ({ logo, title, description, lin
           target="_blank"
           rel="noopener noreferrer"
           sx={{
+            ...theme.typography.body1,
             fontFamily: "Poppins, sans-serif",
-            fontSize: "14px",
-            color: "rgba(255,255,255,0.7)",
+            fontWeight: 400,
+            color: "#FFFFFFB3",
             textDecoration: "none",
             "&:hover": { textDecoration: "underline" },
           }}
@@ -69,9 +85,10 @@ const ContactCard: React.FC<ContactCardProps> = ({ logo, title, description, lin
       ) : (
         <Typography
           sx={{
+            ...theme.typography.body1,
+            fontWeight: 400,
             fontFamily: "Poppins, sans-serif",
-            fontSize: "14px",
-            color: "rgba(255,255,255,0.7)",
+            color: "#FFFFFFB3",
           }}
         >
           {description}

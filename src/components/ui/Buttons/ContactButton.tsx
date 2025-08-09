@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button as MuiButton } from '@mui/material';
+import { Button, useTheme } from '@mui/material';
 
 interface CustomButtonProps {
   onClick: () => void;
@@ -7,28 +7,29 @@ interface CustomButtonProps {
   type?: 'button' | 'submit' | 'reset';
 }
 
-const Button: React.FC<CustomButtonProps> = ({ onClick, label, type = 'button' }) => {
+const ContactButton: React.FC<CustomButtonProps> = ({ onClick, label, type = 'button' }) => {
+  const theme = useTheme();
 
   return (
-    <MuiButton
+    <Button
       onClick={onClick}
+      fullWidth
       variant="outlined"
       type={type}
       sx={{
-        fontSize: 16,
-        width: 137,
-        height: 40,
+        ...theme.typography.body2,
+        height: 54,
         minWidth: 50,
         minHeight: 28,
         px: 3,
         py: 1,
-        borderRadius: '100px',
+        borderRadius: '20px',
         borderWidth: 1,
-        borderColor: 'rgba(255, 255, 255, 0.4)',
+        borderColor: '#242A3D',
         color: '#FFFFFFE6',
         backgroundColor: 'transparent',
+        fontFamily: "Poppins, sans-serif",
         textTransform: 'none',
-        fontFamily: "sans-serif",
         fontWeight: 400,
         '&:hover': {
           backgroundColor: 'rgba(255, 255, 255, 0.05)',
@@ -37,8 +38,8 @@ const Button: React.FC<CustomButtonProps> = ({ onClick, label, type = 'button' }
       }}
     >
       {label}
-    </MuiButton>
+    </Button>
   );
 };
 
-export default Button;
+export default ContactButton;

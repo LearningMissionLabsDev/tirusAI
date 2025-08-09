@@ -1,61 +1,94 @@
-import { Box, Typography } from '@mui/material';
-import StepBack from '/assets/StepBack.png';
+import React from "react";
+import { Box, Typography } from "@mui/material";
 
 interface StepItemProps {
-  number: string;
-  text: string;
+  text?: string;
+  leftImg?: string;
+  rightImg?: string;
 }
 
-const StepItem: React.FC<StepItemProps> = ({ number, text }) => (
-  <Box
-    sx={{
-      textAlign: 'center',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      width: '100%',
-      maxWidth: '305px',
-      margin: '0 auto',
-    }}
-  >
+const StepItem: React.FC<StepItemProps> = ({ leftImg, rightImg, text = "We will work with you to identify and analyze your specific business needs", }) => {
+  return (
     <Box
-      component="img"
-      src={number}
-      alt="Step Icon"
+      component="main"
       sx={{
-        width: '305px',
-        height: '122px',
-        zIndex: 1,
-      }}
-    />
-    <Box
-      sx={{
-        backgroundImage: `url(${StepBack})`,
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center',
-        borderRadius: '20px',
-        width: '305px',
-        height: '102px',
-        mt: '-40px',
-        zIndex: 2,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
+        m: 0,
+        minHeight: "100vh",
+        display: "grid",
+        placeItems: "center",
+        color: "#fff",
+        fontFamily: `"Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif`,
       }}
     >
-      <Typography
-        fontSize="18px"
-        fontWeight={400}
-        fontFamily="sans-serif"
-        color="#ffffff"
-        textAlign="center"
-        letterSpacing="0.08em"
+      <Box
+        sx={{
+          display: "flex",
+          gap: "40px",
+          justifyContent: "center",
+          alignItems: "center",
+          p: 3,
+          position: "relative",
+        }}
       >
-        {text}
-      </Typography>
+        {/* Numbers */}
+        <Box
+          sx={{
+            position: "absolute",
+            left: "50%",
+            transform: "translate(-50%, -65%)",
+            zIndex: 1,
+            display: "flex",
+            gap: "16px",
+            pointerEvents: "none",
+          }}
+        >
+          <Box
+            component="img"
+            src={leftImg}
+            alt="0"
+            sx={{ width: 56, height: "auto" }}
+          />
+          <Box
+            component="img"
+            src={rightImg}
+            alt="1"
+            sx={{ width: 56, height: "auto" }}
+          />
+        </Box>
+
+        {/* Glass Card */}
+        <Box
+          sx={{
+            position: "relative",
+            width: 257,
+            minHeight: 81,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            textAlign: "center",
+            flexDirection: "column",
+            lineHeight: 1.5,
+            borderRadius: "20px",
+            p: 3,
+            zIndex: 2,
+            background: "rgb(10 15 28 / 80%)",
+            border: "1px solid rgba(255, 255, 255, 0.05)",
+            backdropFilter: "blur(50px)",
+          }}
+        >
+          <Typography
+            sx={{
+              fontSize: 18,
+              fontWeight: 400,
+              fontFamily: `"Poppins", sans-serif`,
+            }}
+          >
+            {text}
+          </Typography>
+        </Box>
+      </Box>
     </Box>
-  </Box>
-);
+  );
+}
 
 export default StepItem;

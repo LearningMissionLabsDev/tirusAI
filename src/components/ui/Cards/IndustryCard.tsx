@@ -1,8 +1,13 @@
 import React from 'react';
 import { Box, Typography, useTheme } from '@mui/material';
-import TirusEducation from "/assets/TirusEducation.png";
 
-const IndustryCard: React.FC = () => {
+interface IndustryCardProps {
+  title: string;
+  description: string;
+  icon?: string;
+}
+
+const IndustryCard: React.FC<IndustryCardProps> = ({ title, description, icon }) => {
   const theme = useTheme();
 
   return (
@@ -10,12 +15,12 @@ const IndustryCard: React.FC = () => {
       sx={{
         display: 'flex',
         justifyContent: 'center',
-        width: '100%',
+        maxWidth: '100%',
       }}
     >
       <Box
         sx={{
-          width: { sm: 384, md: 384, lg: 400, xl: 430,   },
+          width: { sm: 384, md: 384, lg: 400, xl: 430, },
           borderRadius: '10px',
           backgroundColor: '#ffffff14',
           position: 'relative',
@@ -25,6 +30,7 @@ const IndustryCard: React.FC = () => {
           px: '2px',
           py: '2px',
           overflow: 'hidden',
+          mx: '16px',
         }}
       >
         <Box
@@ -40,7 +46,6 @@ const IndustryCard: React.FC = () => {
             zIndex: 1,
           }}
         />
-
         <Box
           sx={{
             width: 'calc(100% - 6px)',
@@ -61,34 +66,37 @@ const IndustryCard: React.FC = () => {
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
             <Box
               component="img"
-              src={TirusEducation}
-              alt="Tirus in Education"
+              src={icon}
+              alt={title}
               sx={{ width: 24, height: 24 }}
             />
             <Typography
               sx={{
                 ...theme.typography.subtitle1,
-                fontWeight: 600,
-                color: 'white',
+                fontWeight: 500,
+                color: '#FFFFFFE6',
                 fontFamily: 'Poppins, sans-serif',
+                lineHeight: 1.5,
               }}
             >
-              Tirus in Education
+              {title}
             </Typography>
           </Box>
-
           <Typography
             sx={{
               mt: 3,
               ...theme.typography.body2,
-              color: 'rgba(255,255,255,0.8)',
+              fontWeight: 400,
+              color: '#EAECF0',
               fontFamily: 'Poppins, sans-serif',
+              lineHeight: 1.7,
             }}
           >
-            Create a customizable educational platform tailored to your specific needs.
+            {description}
           </Typography>
         </Box>
-      </Box></Box>
+      </Box>
+    </Box>
   );
 };
 

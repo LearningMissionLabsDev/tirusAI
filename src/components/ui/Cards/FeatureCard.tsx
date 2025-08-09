@@ -1,52 +1,94 @@
-import { Box, Typography, Paper } from '@mui/material';
-import FutureCardGradient from '/assets/FutureCardGradient.png';
+import React from 'react';
+import { Box, Typography, useTheme } from '@mui/material';
+
 
 interface FeatureCardProps {
-  icon: React.ReactNode;  // Icon can be any React node (e.g., an icon component)
+  icon: string;
   title: string;
-  subtitle: string;
+  description: string;
 }
 
-const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, subtitle }) => (
-  <Box sx={{ position: 'relative', display: 'flex', justifyContent: 'center', width: 'full' }}>
-    <Paper
+const FeatureCard: React.FC<FeatureCardProps> = ({
+  icon,
+  title,
+  description,
+}) => {
+  const theme = useTheme();
+
+  return (
+    <Box
       sx={{
-        width: '234px',
-        height: '163px',
-        backgroundColor: '#000000b3',
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center',
-        borderRadius: '20px',
-        textAlign: 'center',
-        color: 'white',
-        py: 4,
-        px: 3,
-        zIndex: 1,
-        position: 'relative',
-        backgroundImage: `url(${FutureCardGradient})`,
+        display: 'flex',
+        justifyContent: 'center',
       }}
     >
-      <Box mb={4} sx={{}}>
-        {icon}
+      <Box
+        sx={{
+          width: { xs: '280px', sm: '280px' },
+          height: { xs: '225px', sm: '225px' },
+          fontWeight: 600,
+          backdropFilter: 'blur(30px)',
+          backgroundColor: '#0A0F1C',
+          border: '1px solid rgba(255, 255, 255, 0.08)',
+          display: 'flex',
+          flexDirection: 'column',
+          borderRadius: '10px',
+          cursor: 'pointer',
+          position: 'relative',
+          transition: '400ms',
+          textAlign: 'center',
+          '&:hover': {
+            transform: 'scale(1.02)', // Add hover effect
+          },
+        }}
+      >
+        <Box
+          component="img"
+          src={icon}
+          alt={title}
+          sx={{ my: 4, mx: "auto", width: 33.33, height: 33.33 }}
+        />
+        <Typography
+          sx={{
+            ...theme.typography.body1,
+            lineHeight: 1.5,
+            fontWeight: 500,
+            fontFamily: "Poppins, sans-serif",
+            color: "#FFFFFFE6",
+            pb: "10px",
+          }}
+        >
+          {title}
+        </Typography>
+        <Typography
+          sx={{
+            ...theme.typography.body1,
+            fontFamily: "Poppins, sans-serif",
+            fontWeight: 400,
+            color: '#FFFFFFB3',
+            lineHeight: 1.5,
+            whiteSpace: 'pre-line'
+          }}
+        >
+          {description}
+        </Typography>
+        <Box
+          sx={{
+            content: '""',
+            backgroundColor: '#ffffff13',
+            position: 'absolute',
+            bottom: '0',
+            left: '25%',
+            transform: 'translateY(0%)',
+            filter: 'blur(20px)',
+            borderRadius: '50%',
+            width: '7rem',
+            height: '1em',
+          }}
+        />
       </Box>
-      <Typography
-        fontFamily="Poppins, sans-serif"
-        fontSize="18px"
-        mb="10px"
-      >
-        {title}
-      </Typography>
-      <Typography
-        fontFamily="Poppins, sans-serif"
-        fontSize="16px"
-        color="#ccc"
-        sx={{ whiteSpace: 'pre-line' }}
-      >
-        {subtitle}
-      </Typography>
-    </Paper>
-  </Box>
-);
+    </Box>
+  );
+};
 
 export default FeatureCard;
