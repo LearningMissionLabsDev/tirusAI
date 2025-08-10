@@ -61,7 +61,7 @@ const ContactUs: React.FC = () => {
              {contactCardData.items.map((item: ContactCardItem, idx: number) => (
               <ContactCard
                 key={idx}
-                logo={item.icon}
+                icon={item.icon}
                 title={item.title}
                 description={item.description}
                 link={item.link}

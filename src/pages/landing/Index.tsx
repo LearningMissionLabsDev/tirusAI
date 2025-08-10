@@ -5,6 +5,7 @@ import ContactUs from './ContactUs';
 import SmartSection from './SmartSection';
 import Industry from './Industry';
 import Features from './Features';
+import Steps from './Steps';
 
 const Index: React.FC = () => {
   return (
@@ -13,6 +14,7 @@ const Index: React.FC = () => {
         <Hero/>
         <Industry/>
         <Features />
+        <Steps />
         <SmartSection />
         <ContactUs/>
       </Box>
