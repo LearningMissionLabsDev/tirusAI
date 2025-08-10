@@ -1,13 +1,14 @@
 import './App.css'
-import Header from './components/ui/Header'
+import Layout from './components/layout/Layout'
+import Index from './pages/landing/Index'
 
 function App() {
 
   return (
     <>
-      <div>
-        <Header />
-      </div>
+    <Layout>
+      <Index/>
+    </Layout>
     </>
   )
 }
