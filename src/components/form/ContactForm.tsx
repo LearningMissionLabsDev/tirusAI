@@ -43,8 +43,8 @@ const ContactForm: React.FC<ContactFormCardProps> = ({ title, fields, submitText
   linear-gradient(#0A0F1C, #0A0F1C),
   linear-gradient(
     to left,
-    #303F6E 25%,
-    #282E3A 80%
+    #6785e866 25%,
+    #ffffff1a 80%
   )
     `,
                 backgroundOrigin: "border-box",

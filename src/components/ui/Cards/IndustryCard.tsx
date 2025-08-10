@@ -20,7 +20,7 @@ const IndustryCard: React.FC<IndustryCardProps> = ({ title, description, icon })
     >
       <Box
         sx={{
-          width: { sm: 384, md: 384, lg: 400, xl: 430, },
+          width: { sm: 384, md: 384, lg: 392, xl: 430, },
           borderRadius: '10px',
           backgroundColor: '#ffffff14',
           position: 'relative',
@@ -30,7 +30,6 @@ const IndustryCard: React.FC<IndustryCardProps> = ({ title, description, icon })
           px: '2px',
           py: '2px',
           overflow: 'hidden',
-          mx: '16px',
         }}
       >
         <Box
@@ -49,7 +48,7 @@ const IndustryCard: React.FC<IndustryCardProps> = ({ title, description, icon })
         <Box
           sx={{
             width: 'calc(100% - 6px)',
-            minHeight: 128,
+            minHeight: {xs: 128, sm: 130, md: 130, lg: 130, xl: 150},
             maxHeight: '100%',
             borderRadius: '10px',
             backgroundColor: '#0a0f1c',
@@ -89,7 +88,7 @@ const IndustryCard: React.FC<IndustryCardProps> = ({ title, description, icon })
               fontWeight: 400,
               color: '#EAECF0',
               fontFamily: 'Poppins, sans-serif',
-              lineHeight: 1.7,
+              lineHeight: 1.5,
             }}
           >
             {description}
