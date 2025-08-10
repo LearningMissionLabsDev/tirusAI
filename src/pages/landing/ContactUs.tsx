@@ -1,192 +1,91 @@
-// import React from "react";
-// import { Stack, Container, Typography, Box } from "@mui/material";
-// import ContactCard from "../../components/ui/Cards/ContactCard";
-// import ContactPhone from "/assets/ContactPhone.png";
-// import ContactMessage from "/assets/ContactMessage.png";
-// import ContactForm from "../../components/form/ContactForm";
-
-// const ContactUs: React.FC = () => {
-//   return (
-//     <>
-//     <Box maxHeight="100%">
-//       <Box>
-//         <Typography
-//           variant="h3"
-//           sx={{
-//             fontFamily: "Poppins, sans-serif",
-//             fontWeight: 600,
-//             color: "#fff",
-//             textAlign: "center",
-//           }}
-//         >
-//           Contact Us
-//         </Typography>
-//       </Box>
-//       <Container
-//         maxWidth="900px"
-//         height="full"
-//         sx={{
-//           mt: 2,
-//           padding: { xs: 2, sm: 4 },
-//           display: "flex",
-//           justifyContent: "center",
-//         }}
-//       >
-//         {/* Contact Information and Contact Form */}
-//         <Stack
-//           direction={{ xs: "column", md: "row" }}
-//           spacing={4}
-//           justifyContent="space-between"
-//           alignItems="flex-start"
-//           sx={{
-//             mb: 2,
-//             padding: { xs: 2, sm: 4 },
-//             height: "450px", // Set fixed height for both contact cards and form
-//           }}
-//         >
-//           {/* Left side Contact Information */}
-//           <Stack
-//             direction="column"
-//             spacing={4}
-//             flex={1}
-//             alignItems="center"
-//             sx={{
-//               maxWidth: "384px",
-//               maxHeight: "450px",
-//               padding: "16px",
-//               height: "100%", // Ensure this takes up the full height available
-//             }}
-//           >
-//             <ContactCard
-//               logo={ContactPhone}
-//               title="Phone Number"
-//               description="+1(626) 540-2577"
-//               link="tel:+16265402577"
-//             />
-//             <ContactCard
-//               logo={ContactMessage}
-//               title="Message Us"
-//               description="info@tirus.ai"
-//               link="mailto:info@tirus.ai"
-//             />
-//           </Stack>
-
-//           {/* Right side Contact Form */}
-//           <Stack
-//             direction="column"
-//             spacing={4}
-//             flex={1}
-//             alignItems="center"
-//             sx={{
-//               maxWidth: "800px",
-//               height: "100%",
-//               padding: "16px",
-//               borderRadius: "12px", // Optional for rounded edges
-//             }}
-//           >
-//             <ContactForm
-//               title="If you have any questions or inquiries, please don’t hesitate to contact us—we’re here to help."
-//             />
-//           </Stack>
-//         </Stack>
-//       </Container>
-//     </Box>
-//     </>
-//   );
-// };
-
-// export default ContactUs;
-
 import React from "react";
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Container, Typography, useTheme } from "@mui/material";
 import ContactCard from "../../components/ui/Cards/ContactCard";
-import ContactPhone from "/assets/ContactPhone.png";
-import ContactMessage from "/assets/ContactMessage.png";
 import ContactForm from "../../components/form/ContactForm";
+import contactCardData from "../../data/contactCardData.json";
+import contactFormData from "../../data/contactFormData.json";
+
+type ContactCardItem = {
+  icon: string;
+  title: string;
+  description: string;
+  link: string;
+};
 
 const ContactUs: React.FC = () => {
+  const theme = useTheme();
+
   return (
-    <Box maxHeight="100%">
+    <Box maxWidth={'100%'} sx={{ p: { xs: 4, sm: 4, md: 3, lg: 3, xl: 3 } }}>
       <Box>
         <Typography
-          variant="h3"
           sx={{
+            ...theme.typography.h1,
             fontFamily: "Poppins, sans-serif",
             fontWeight: 600,
-            color: "#fff",
+            color: "#FFFFFFE6",
             textAlign: "center",
-            mb: 4,
+            mb: 6,
           }}
         >
-          Contact Us
+          {contactCardData.sectionTitle}
         </Typography>
       </Box>
-
       <Container
-        maxWidth="900px"
-        sx={{
-          
-          padding: { xs: 2, sm: 4 },
-          display: "flex",
-          justifyContent: "center",
-          flexDirection: "column",
-        }}
+        maxWidth={false}
+        sx={{ maxWidth: "1230px", mx: "auto" }}
       >
-        {/* Contact Information and Contact Form */}
         <Box
           sx={{
             display: "flex",
             flexDirection: { xs: "column", md: "row" },
-            justifyContent: "space-between",
-            alignItems: "flex-start",
-            gap: 4,
-            height: "450px", // Set fixed height for both contact cards and form
+            gap: { xs: 3, md: 8 },
+            justifyContent: "center",
+            alignItems: { xs: "center", md: "stretch" },
           }}
-        >
-          {/* Left side Contact Information */}
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              gap: 4,
-              flex: 1,
-              alignItems: "center",
-              maxWidth: "384px",
-              maxHeight: "450px",
-              padding: "16px",
-              height: "100%", // Ensure this takes up the full height available
-            }}
-          >
-            <ContactCard
-              logo={ContactPhone}
-              title="Phone Number"
-              description="+1(626) 540-2577"
-              link="tel:+16265402577"
-            />
-            <ContactCard
-              logo={ContactMessage}
-              title="Message Us"
-              description="info@tirus.ai"
-              link="mailto:info@tirus.ai"
-            />
-          </Box>
 
-          {/* Right side Contact Form */}
+        >
+          {/* Left Side - Contact Info Cards */}
           <Box
             sx={{
               display: "flex",
               flexDirection: "column",
-              gap: 4,
+              gap: 3,
               flex: 1,
-              alignItems: "center",
-              maxWidth: "800px",
+              maxWidth: { xs: "100%", md: "384px" },
+              alignItems: { xs: 'center', md: 'stretch' },
+              width: "100%",
               height: "100%",
-              padding: "16px",
-              borderRadius: "12px", // Optional for rounded edges
             }}
           >
-            <ContactForm
-              title="If you have any questions or inquiries, please don’t hesitate to contact us—we’re here to help."
+             {contactCardData.items.map((item: ContactCardItem, idx: number) => (
+              <ContactCard
+                key={idx}
+                logo={item.icon}
+                title={item.title}
+                description={item.description}
+                link={item.link}
+              />
+            ))}
+          </Box>
+          {/* Right Side - Form */}
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              flex: 1,
+              maxWidth: "794px",
+              height: "424px",
+              borderRadius: "12px",
+              mr: { xs: 0, md: 3.5 },
+            }}
+          >
+             <ContactForm
+              title={contactFormData.title}
+              fields={contactFormData.fields}
+              submitText={contactFormData.submitButton.text}
             />
           </Box>
         </Box>
@@ -196,126 +95,3 @@ const ContactUs: React.FC = () => {
 };
 
 export default ContactUs;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import React from "react";
-// import { Stack, Container, Typography, Box } from "@mui/material";
-// import ContactCard from "../../components/ui/Cards/ContactCard";
-// import ContactPhone from "/assets/ContactPhone.png";
-// import ContactMessage from "/assets/ContactMessage.png";
-// import ContactForm from "../../components/form/ContactForm";
-
-// const ContactUs: React.FC = () => {
-//   return (
-//     <>
-//       <Box sx={{ width: "100%", minHeight: "100vh", }}>
-//         <Box>
-//           <Typography
-//             variant="h3"
-//             sx={{
-//               fontFamily: "Poppins, sans-serif",
-//               fontWeight: 600,
-//               color: "#fff",
-//               textAlign: "center",
-//               mt: { xs: 2, sm: 4 },
-//               mb: { xs: 2, sm: 4 },
-//               fontSize: { xs: "2rem", sm: "2.5rem", md: "3rem" },
-//             }}
-//           >
-//             Contact Us
-//           </Typography>
-//         </Box>
-//         <Container
-//           maxWidth="md"
-//           sx={{
-//             py: { xs: 2, sm: 4 },
-//             display: "flex",
-//             justifyContent: "center",
-//             alignItems: "center",
-//             minHeight: { xs: "auto", md: "70vh" },
-//           }}
-//         >
-//           {/* Contact Information and Contact Form */}
-//           <Stack
-//             direction={{ xs: "column", md: "row" }}
-//             spacing={{ xs: 2, md: 4 }}
-//             justifyContent="space-between"
-//             alignItems="stretch"
-//             sx={{
-//               width: "100%",
-//               borderRadius: 2,
-//               p: { xs: 2, sm: 4 },
-//             }}
-//           >
-//             {/* Left side Contact Information */}
-//             <Stack
-//               direction="column"
-//               spacing={2}
-//               flex={1}
-//               alignItems="center"
-//               sx={{
-//                 width: "100%",
-//                 maxWidth: { xs: "100%", md: "350px" },
-//                 p: { xs: 1, sm: 2 },
-//               }}
-//             >
-//               <ContactCard
-//                 logo={ContactPhone}
-//                 title="Phone Number"
-//                 description="+1(626) 540-2577"
-//                 link="tel:+16265402577"
-//               />
-//               <ContactCard
-//                 logo={ContactMessage}
-//                 title="Message Us"
-//                 description="info@tirus.ai"
-//                 link="mailto:info@tirus.ai"
-//               />
-//             </Stack>
-
-//             {/* Right side Contact Form */}
-//             <Stack
-//               direction="column"
-//               spacing={2}
-//               flex={2}
-//               alignItems="center"
-//               sx={{
-//                 width: "100%",
-//                 maxWidth: { xs: "100%", md: "500px" },
-//                 p: { xs: 1, sm: 2 },
-//                 borderRadius: 2,
-//               }}
-//             >
-//               <ContactForm
-//                 title="If you have any questions or inquiries, please don’t hesitate to contact us—we’re here to help."
-//               />
-//             </Stack>
-//           </Stack>
-//         </Container>
-//       </Box>
-//     </>
-//   );
-// };
-
-// export default ContactUs;
