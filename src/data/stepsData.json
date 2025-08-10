@@ -1,17 +1,20 @@
 {
-  "sectionTitle": "How It Works",
-  "items": [
-    {
-        "number": "/assets/Step1.png",
-        "text": "Train your chatbot on your content & processes"
-    },
-    {
-        "number": "/assets/Step2.png",
-        "text": "Integrate with your tools"
-    },
-    {
-        "number": "/assets/Step3.png",
-        "text": "Launch — Let the AI start assisting users immediately"
-    }
- ]
+    "sectionTitle": "How It Works",
+    "items": [
+        {
+            "leftImg": "/assets/Step0.svg",
+            "rightImg": "/assets/Step1.svg",
+            "text": "We will work with you to \nidentify and analyze your \nspecific business needs"
+        },
+        {
+            "leftImg": "/assets/Step0.svg",
+            "rightImg": "/assets/Step2.svg",
+            "text": "Perform integration with \nyour existing tools and \nprocesses"
+        },
+        {
+            "leftImg": "/assets/Step0.svg",
+            "rightImg": "/assets/Step3.svg",
+            "text": "Launch — Let AI streamline \nyour business immediately"
+        }
+    ]
 }

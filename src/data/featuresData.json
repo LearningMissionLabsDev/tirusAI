@@ -1,29 +1,25 @@
 {
-  "sectionTitle": "Why Your Website Needs A Chatbot",
+  "sectionTitle": "Why Your Business Needs an Agentic aI",
   "items": [
     {
-      "icon": "/assets/TimeIcon.png",
-      "alt": "Time Icon",
+      "icon": "/assets/Feature1.png",
       "title": "Available 24/7",
-      "subtitle": "Never miss a question \nor lead."
+      "description": "Never miss a question \nor lead."
     },
     {
-      "icon": "/assets/LampIcon.png",
-      "alt": "Lamp Icon",
+      "icon": "/assets/Feature2.png",
       "title": "Instant Answers",
-      "subtitle": "Reduce bounce rates and support tickets."
+      "description": "Reduce bounce rates and \nsupport tickets."
     },
     {
-      "icon": "/assets/AnalyzeIcon.png",
-      "alt": "Analyze Icon",
+      "icon": "/assets/Feature3.png",
       "title": "More Engagement",
-      "subtitle": "Keep users \non-site longer."
+      "description": "Keep users \non-site longer."
     },
     {
-      "icon": "/assets/NoteIcon.png",
-      "alt": "Note Icon",
+      "icon": "/assets/Feature4.png",
       "title": "Lead Capture",
-      "subtitle": "Gather emails, phone numbers and preferences."
+      "description": "Gather emails, phone \nnumbers and preferences."
     }
   ]
 }

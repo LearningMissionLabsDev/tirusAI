@@ -1,0 +1,20 @@
+{
+  "title": "If you have any questions or inquiries, please don’t hesitate to \ncontact us—we’re here to help.",
+  "fields": [
+    {
+      "name": "name",
+      "label": "Your Name"
+    },
+    {
+      "name": "email",
+      "label": "Email Address"
+    },
+    {
+      "name": "message",
+      "label": "Message"
+    }
+  ],
+  "submitButton": {
+    "text": "Send"
+  }
+}
