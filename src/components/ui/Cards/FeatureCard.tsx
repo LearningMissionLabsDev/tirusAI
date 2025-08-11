@@ -24,8 +24,8 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
     >
       <Box
         sx={{
-          width: { xs: '280px', sm: '280px' },
-          height: { xs: '225px', sm: '225px' },
+          width: { xs: '250px', sm: '280px' },
+          height: { xs: '215px', sm: '225px' },
           fontWeight: 600,
           backdropFilter: 'blur(30px)',
           backgroundColor: '#0A0F1C',

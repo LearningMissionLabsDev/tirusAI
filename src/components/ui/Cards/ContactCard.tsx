@@ -35,8 +35,8 @@ const ContactCard: React.FC<ContactCardProps> = ({ icon, title, description, lin
   linear-gradient(#0A0F1C, #0A0F1C),
   linear-gradient(
     to right,
-    #303F6E 25%,
-    #282E3A 80%
+    #6785e866 10%,
+    #ffffff1a 90%
   )
     `,
         backgroundOrigin: "border-box",

@@ -1,5 +1,4 @@
-import React from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, useTheme } from "@mui/material";
 
 interface StepItemCardProps {
   leftImg?: string;
@@ -11,25 +10,20 @@ interface StepItemCardProps {
 const StepItem: React.FC<StepItemCardProps> = ({
   text, leftImg, rightImg, alt
 }) => {
+  const theme = useTheme();
+
   return (
     <Box
-      component="main"
       sx={{
-        m: 0,
-        minHeight: "100vh",
-        display: "grid",
         placeItems: "center",
-        color: "#fff",
-        fontFamily: `"Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif`,
+        mt: 5
       }}
     >
       <Box
         sx={{
           display: "flex",
-          gap: "40px",
           justifyContent: "center",
           alignItems: "center",
-          p: 3,
           position: "relative",
         }}
       >
@@ -62,7 +56,7 @@ const StepItem: React.FC<StepItemCardProps> = ({
             flexDirection: "column",
             lineHeight: 1.5,
             borderRadius: "20px",
-            p: 3,
+            p: { xs: 1.5, sm: 3 },
             zIndex: 2,
             background: "rgb(10 15 28 / 80%)",
             border: "1px solid rgba(255, 255, 255, 0.05)",
@@ -71,9 +65,10 @@ const StepItem: React.FC<StepItemCardProps> = ({
         >
           <Typography
             sx={{
-              fontSize: 18,
+              ...theme.typography.body1,
               fontWeight: 400,
               fontFamily: `"Poppins", sans-serif`,
+              color: "#FFFFFFE6",
             }}
           >
             {text}
@@ -82,6 +77,6 @@ const StepItem: React.FC<StepItemCardProps> = ({
       </Box>
     </Box>
   );
-};
+}
 
 export default StepItem;
