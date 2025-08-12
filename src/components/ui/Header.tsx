@@ -15,6 +15,7 @@ const Header: React.FC = () => {
       position="fixed"
       sx={{
         background: "transparent",
+        backdropFilter: "blur(350px)",
         boxShadow: "none",
       }}
     >
