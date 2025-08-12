@@ -1,3 +1,4 @@
+
 import React from 'react';
 import type { ReactNode } from 'react';
 import { Box } from '@mui/material';
@@ -22,7 +23,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <Box
         component="main"
         sx={{
-          padding: '1rem',
           marginTop: '88px',
           flexGrow: 1,
         }}
