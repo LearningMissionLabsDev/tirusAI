@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Typography, Button } from "@mui/material";
-import PurpleGradient from "/assets/HeroGradient.png"; // Make sure the path is correct
+// import PurpleGradient from "/assets/HeroGradient.png"; // Make sure the path is correct
 
 const Hero: React.FC = () => {
   return (
@@ -28,7 +28,7 @@ const Hero: React.FC = () => {
         {/* Blurred gradient behind */}
         <Box
           component="img"
-          src={PurpleGradient}
+          src={"/assets/ContactUsGradient.png"} // Ensure the path is correct
           alt=""
           aria-hidden
           sx={{
