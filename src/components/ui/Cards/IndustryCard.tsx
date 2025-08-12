@@ -20,7 +20,7 @@ const IndustryCard: React.FC<IndustryCardProps> = ({ title, description, icon })
     >
       <Box
         sx={{
-          width: { sm: 384, md: 384, lg: 392, xl: 430, },
+          width: { sm: 380, md: 384, lg: 392, xl: 430, },
           borderRadius: '10px',
           backgroundColor: '#ffffff14',
           position: 'relative',
