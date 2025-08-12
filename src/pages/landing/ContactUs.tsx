@@ -4,6 +4,7 @@ import ContactCard from "../../components/ui/Cards/ContactCard";
 import ContactForm from "../../components/form/ContactForm";
 import contactCardData from "../../data/contactCardData.json";
 import contactFormData from "../../data/contactFormData.json";
+import gradientSvg from "/assets/ContactUsGradient.svg"
 
 type ContactCardItem = {
   icon: string;
@@ -16,7 +17,22 @@ const ContactUs: React.FC = () => {
   const theme = useTheme();
 
   return (
-    <Box maxWidth={'100%'} sx={{ p: { xs: 4, sm: 4, md: 3, lg: 3, xl: 3 } }}>
+    <Box maxWidth={'100%'} sx={{ p: { xs: 4, sm: 4, md: 3, lg: 3, xl: 3 }, position: "relative", overflow: "hidden" }}>
+       <Box
+        component="img"
+        src={gradientSvg}
+        alt="Contact section background gradient"
+        sx={{
+          position: "absolute",
+          top: "64%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          width: { xs: "140%", md: "100%" },
+          height: "auto",
+          zIndex: 1,
+          filter: "blur(90px)",
+        }}
+      />
       <Box>
         <Typography
           sx={{

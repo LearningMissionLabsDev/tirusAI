@@ -24,6 +24,7 @@ const Industry: React.FC = () => {
           justifyContent="center"
           alignItems="center"
           columns={{ xs: 1, sm: 1, md: 3 }}
+          p={2}
         >
           {industryData.map((item, idx) => (
              <Grid
