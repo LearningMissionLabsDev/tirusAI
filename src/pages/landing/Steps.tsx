@@ -12,7 +12,6 @@ const Steps: React.FC = () => {
         width: "100%",
         display: "flex",
         justifyContent: "center",
-        py: { xs: 4, md: 4 },
       }}
     >
       <Container

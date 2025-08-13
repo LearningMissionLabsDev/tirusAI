@@ -13,8 +13,7 @@ const Features: React.FC = () => {
         width: '100%',
         display: 'flex',
         justifyContent: 'center',
-        py: { xs: 4, md: 14 },
-        backgroundColor: '#0A0F1C',
+        py: { xs: 4, md: 20 },
       }}
     >
       <Container
