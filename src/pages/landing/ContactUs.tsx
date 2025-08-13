@@ -4,7 +4,6 @@ import ContactCard from "../../components/ui/Cards/ContactCard";
 import ContactForm from "../../components/form/ContactForm";
 import contactCardData from "../../data/contactCardData.json";
 import contactFormData from "../../data/contactFormData.json";
-import gradientSvg from "/assets/ContactUsGradient.svg"
 
 type ContactCardItem = {
   icon: string;
