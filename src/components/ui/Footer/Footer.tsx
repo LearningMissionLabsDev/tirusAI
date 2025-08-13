@@ -33,6 +33,7 @@ const Footer = () => {
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
+                mt: 20
             }}
         >
             <Container maxWidth="xl" sx={{ py: '20px', mt: '40px' }}>
