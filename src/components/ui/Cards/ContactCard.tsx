@@ -14,6 +14,7 @@ const ContactCard: React.FC<ContactCardProps> = ({ icon, title, description, lin
   return (
     <Box
       sx={{
+        position: "relative", 
         width: {
           xs: "100%",
         },
@@ -27,22 +28,22 @@ const ContactCard: React.FC<ContactCardProps> = ({ icon, title, description, lin
         justifyContent: "center",
         gap: 1,
         transition: "all 0.3s ease",
-        "&:hover": {
-          borderColor: "rgba(255, 255, 255, 0.01)",
-          transform: "translateY(-4px)",
-        },
-        backgroundImage: `
-  linear-gradient(#0A0F1C, #0A0F1C),
-  linear-gradient(
-    to right,
-    #6785e866 10%,
-    #ffffff1a 90%
-  )
-    `,
-        backgroundOrigin: "border-box",
-        backgroundClip: "padding-box, border-box, border-box",
-        WebkitBackgroundClip: "padding-box, border-box, border-box",
-        WebkitBoxDecorationBreak: "clone",
+       
+      backgroundColor: "transparent",
+    "& > .content": { position: "relative", zIndex: 1 },
+    "&::before": {
+      content: '""',
+      position: "absolute",
+      inset: 0,
+      borderRadius: "inherit",
+      padding: "2px",
+      background: "linear-gradient(to right, #6785e866 10%, #ffffff1a 90%)",
+      pointerEvents: "none",
+      WebkitMask:
+        "linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)",
+      WebkitMaskComposite: "xor",
+      maskComposite: "exclude",
+    },
       }}
     >
       <Box
