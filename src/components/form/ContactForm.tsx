@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Box, Typography, TextField, useTheme } from "@mui/material";
 import ContactButton from "../ui/Buttons/ContactButton";
@@ -28,7 +29,6 @@ const ContactForm: React.FC<ContactFormCardProps> = ({ title, fields, submitText
                 py: { xs: "64px", sm: "64px", md: "64px", lg: "64px", xl: "32px" },
                 border: "2px solid transparent",
                 borderRadius: "20px",
-                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
@@ -39,18 +39,23 @@ const ContactForm: React.FC<ContactFormCardProps> = ({ title, fields, submitText
                 maxHeight: "424px",
                 textAlign: "center",
                 overflow: "hidden",
-                backgroundImage: `
-  linear-gradient(#0A0F1C, #0A0F1C),
-  linear-gradient(
-    to left,
-    #6785e866 25%,
-    #ffffff1a 80%
-  )
-    `,
-                backgroundOrigin: "border-box",
-                backgroundClip: "padding-box, border-box, border-box",
-                WebkitBackgroundClip: "padding-box, border-box, border-box",
-                WebkitBoxDecorationBreak: "clone",
+                backgroundColor: "transparent",
+                "& > .content": { position: "relative", zIndex: 1 },
+                "&::before": {
+                    content: '""',
+                    position: "absolute",
+                    inset: 0,
+                    borderRadius: "inherit",
+                    padding: "2px",
+                    background:
+                        "linear-gradient(to left, #6785e866 25%, #ffffff1a 80%)",
+                    pointerEvents: "none",
+
+                    WebkitMask:
+                        "linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)",
+                    WebkitMaskComposite: "xor",
+                    maskComposite: "exclude",
+                },
             }}
         >
             <Typography sx={{ ...theme.typography.body1, fontWeight: 400, fontFamily: "Poppins, sans-serif", color: "#FFFFFFE6", marginBottom: 4, whiteSpace: 'pre-line', }}>
@@ -62,45 +67,45 @@ const ContactForm: React.FC<ContactFormCardProps> = ({ title, fields, submitText
                 sx={{ width: { xs: '100%', sm: '100%', md: '100%', lg: '666px', xl: '666px' } }}
             >
                 <TextField
-                label={fields[0]?.label}
-                variant="outlined"
-                fullWidth
-                sx={{
-                    marginBottom: "12px",
-                    input: { color: "#FFFFFFE6" },
-                    "& .MuiInputLabel-root": {
-                        ...theme.typography.body2, color: "#FFFFFFB3", fontFamily: "Poppins, sans-serif", fontWeight: 400, lineHeight: 1.5, "&.Mui-focused": {
-                            color: "#FFFFFFB3 !important",
-                        }, padding: "0 10px",
-                    },
-                    "& .MuiOutlinedInput-root": {
-                        borderRadius: "20px",
-                        "& fieldset": {
-                            borderColor: "#171C28",
+                    label={fields[0]?.label}
+                    variant="outlined"
+                    fullWidth
+                    sx={{
+                        marginBottom: "12px",
+                        input: { color: "#FFFFFFE6" },
+                        "& .MuiInputLabel-root": {
+                            ...theme.typography.body2, color: "#FFFFFFB3", fontFamily: "Poppins, sans-serif", fontWeight: 400, lineHeight: 1.5, "&.Mui-focused": {
+                                color: "#FFFFFFB3 !important",
+                            }, padding: "0 10px",
                         },
-                        "&:hover fieldset": {
-                            borderColor: "#282E3A",
+                        "& .MuiOutlinedInput-root": {
+                            borderRadius: "20px",
+                            "& fieldset": {
+                                borderColor: "#171C28",
+                            },
+                            "&:hover fieldset": {
+                                borderColor: "#282E3A",
+                            },
+                            "&.Mui-focused fieldset": {
+                                borderColor: "#282E3A",
+                            },
                         },
-                        "&.Mui-focused fieldset": {
-                            borderColor: "#282E3A",
+                        "& .MuiOutlinedInput-notchedOutline": {
+                            borderWidth: "1px"
                         },
-                    },
-                    "& .MuiOutlinedInput-notchedOutline": {
-                        borderWidth: "1px"
-                    },
-                    "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
-                        borderColor: "#282E3A !important"
-                    },
-                    "& .MuiOutlinedInput-root.Mui-focused": {
-                        boxShadow: "none",
-                    },
-                    "& .MuiOutlinedInput-input": {
-                        padding: "14px 24px",
-                        lineHeight: 0,
-                    },
-                }}
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+                        "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
+                            borderColor: "#282E3A !important"
+                        },
+                        "& .MuiOutlinedInput-root.Mui-focused": {
+                            boxShadow: "none",
+                        },
+                        "& .MuiOutlinedInput-input": {
+                            padding: "14px 24px",
+                            lineHeight: 0,
+                        },
+                    }}
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                 />
                 <TextField
                     label={fields[1]?.label}

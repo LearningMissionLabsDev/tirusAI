@@ -21,11 +21,11 @@ const SmartCard: React.FC<SmartCardProps> = ({
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#0A0F1C',
       }}
     >
       <Box
         sx={{
+          position: 'relative',
           width: '100%',
           maxWidth: 1062,
           height: { xs: 'auto', sm: 'auto', md: 215 },
@@ -38,20 +38,21 @@ const SmartCard: React.FC<SmartCardProps> = ({
           mx: 3,
           borderRadius: '20px',
           border: '5px solid transparent',
-          backgroundImage: `
-  linear-gradient(#0A0F1C, #0A0F1C),
-  linear-gradient(
-    135deg,
-    #543d9eff 0%,
-    #282E3A 8%,
-    #282E3A 92%,
-    #543d9eff 100%
-  )
-    `,
-          backgroundOrigin: "border-box",
-          backgroundClip: "padding-box, border-box, border-box",
-          WebkitBackgroundClip: "padding-box, border-box, border-box",
-          WebkitBoxDecorationBreak: "clone",
+          backgroundColor: "transparent",
+          "& > .content": { position: "relative", zIndex: 1 },
+          "&::before": {
+            content: '""',
+            position: "absolute",
+            inset: 0,
+            borderRadius: "inherit",
+            padding: "5px",
+            background: "linear-gradient(135deg, #543d9eff 0%, #282E3A 8%, #282E3A 92%, #543d9eff 100% )",
+            pointerEvents: "none",
+            WebkitMask:
+              "linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)",
+            WebkitMaskComposite: "xor",
+            maskComposite: "exclude",
+          },
         }}
       >
         {/* Left: Text */}
