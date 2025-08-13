@@ -13,7 +13,7 @@ const SmartSection: React.FC = () => {
         width: '100%',
         display: 'flex',
         justifyContent: 'center',
-        py: { xs: 4, md: 6 },
+        py: { xs: 4, md: 20 },
       }}
     >
       <Container maxWidth={false} sx={{ maxWidth: 1330, px: { xs: 2, sm: 3 } }}>
