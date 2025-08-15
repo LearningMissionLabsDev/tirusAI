@@ -125,7 +125,7 @@ const Footer = () => {
             <Box
                 sx={{
                     width: '100%',
-                    mb: '24px',
+                    mb: '48px',
                     display: 'flex',
                     justifyContent: 'center',
                     py: '3px',
