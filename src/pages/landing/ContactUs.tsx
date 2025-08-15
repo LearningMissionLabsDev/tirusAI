@@ -16,7 +16,7 @@ const ContactUs: React.FC = () => {
   const theme = useTheme();
 
   return (
-    <Box maxWidth={'100%'} sx={{ p: { xs: 4, sm: 4, md: 3, lg: 3, xl: 3 }, position: "relative", overflow: "hidden", }}>
+    <Box maxWidth={'100%'} sx={{ px: { xs: 4, sm: 4, md: 3, lg: 3, xl: 3 }, position: "relative", overflow: "hidden", }}>
       <Box>
         <Typography
           sx={{
