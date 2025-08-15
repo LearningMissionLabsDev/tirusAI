@@ -71,15 +71,15 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
         >
           {description}
         </Typography>
-        <Box
+      <Box
           sx={{
             content: '""',
             backgroundColor: '#ffffff13',
             position: 'absolute',
             bottom: '0',
-            left: '25%',
-            transform: 'translateY(-120%)',
-            filter: 'blur(20px)',
+            left: '30%',
+            transform: 'translateY(-130%)',
+            filter: 'blur(18px)',
             borderRadius: '50%',
             width: '7rem',
             height: '1em',
