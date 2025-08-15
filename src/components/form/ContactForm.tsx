@@ -64,7 +64,7 @@ const ContactForm: React.FC<ContactFormCardProps> = ({ title, fields, submitText
             <Box
                 component="form"
                 onSubmit={handleSubmit}
-                sx={{ width: { xs: '100%', sm: '100%', md: '100%', lg: '666px', xl: '666px' } }}
+                sx={{ width: { xs: '100%', sm: '100%', md: '100%', lg: '664px', xl: '666px' } }}
             >
                 <TextField
                     label={fields[0]?.label}
@@ -74,7 +74,7 @@ const ContactForm: React.FC<ContactFormCardProps> = ({ title, fields, submitText
                         marginBottom: "12px",
                         input: { color: "#FFFFFFE6" },
                         "& .MuiInputLabel-root": {
-                            ...theme.typography.body2, color: "#FFFFFFB3", fontFamily: "Poppins, sans-serif", fontWeight: 400, lineHeight: 1.5, "&.Mui-focused": {
+                            ...theme.typography.body2, color: "#FFFFFFB3", fontFamily: "Poppins, sans-serif", fontWeight: 400, lineHeight: 1.2, "&.Mui-focused": {
                                 color: "#FFFFFFB3 !important",
                             }, padding: "0 10px",
                         },
@@ -100,7 +100,7 @@ const ContactForm: React.FC<ContactFormCardProps> = ({ title, fields, submitText
                             boxShadow: "none",
                         },
                         "& .MuiOutlinedInput-input": {
-                            padding: "14px 24px",
+                            padding: "12px 24px",
                             lineHeight: 0,
                         },
                     }}
@@ -115,7 +115,7 @@ const ContactForm: React.FC<ContactFormCardProps> = ({ title, fields, submitText
                         marginBottom: "12px",
                         input: { color: "#FFFFFFE6" },
                         "& .MuiInputLabel-root": {
-                            ...theme.typography.body2, color: "#FFFFFFB3", fontFamily: "Poppins, sans-serif", fontWeight: 400, lineHeight: 1.5, "&.Mui-focused": {
+                            ...theme.typography.body2, color: "#FFFFFFB3", fontFamily: "Poppins, sans-serif", fontWeight: 400, lineHeight: 1.2, "&.Mui-focused": {
                                 color: "#FFFFFFB3 !important",
                             }, padding: "0 10px",
                         },
@@ -141,7 +141,7 @@ const ContactForm: React.FC<ContactFormCardProps> = ({ title, fields, submitText
                             boxShadow: "none",
                         },
                         "& .MuiOutlinedInput-input": {
-                            padding: "14px 24px",
+                            padding: "12px 24px",
                             lineHeight: 0,
                         },
                     }}
@@ -156,7 +156,7 @@ const ContactForm: React.FC<ContactFormCardProps> = ({ title, fields, submitText
                         marginBottom: "32px",
                         input: { color: "#FFFFFFE6" },
                         "& .MuiInputLabel-root": {
-                            ...theme.typography.body2, color: "#FFFFFFB3", fontFamily: "Poppins, sans-serif", fontWeight: 400, lineHeight: 1.5, "&.Mui-focused": {
+                            ...theme.typography.body2, color: "#FFFFFFB3", fontFamily: "Poppins, sans-serif", fontWeight: 400, lineHeight: 1.2, "&.Mui-focused": {
                                 color: "#FFFFFFB3 !important"
                             }, padding: "0 10px"
                         },
@@ -182,7 +182,7 @@ const ContactForm: React.FC<ContactFormCardProps> = ({ title, fields, submitText
                             boxShadow: "none",
                         },
                         "& .MuiOutlinedInput-input": {
-                            padding: "14px 24px",
+                            padding: "12px 24px",
                             lineHeight: 0,
                         },
                     }}

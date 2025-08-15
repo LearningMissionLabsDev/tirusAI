@@ -1,7 +1,6 @@
 import React from 'react';
 import { Box, Typography, useTheme } from '@mui/material';
 
-
 interface FeatureCardProps {
   icon: string;
   title: string;
@@ -46,7 +45,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
           component="img"
           src={icon}
           alt={title}
-          sx={{ my: 4, mx: "auto", width: 33.33, height: 33.33 }}
+          sx={{ my: 4, mx: "auto", width: 40, height: 40 }}
         />
         <Typography
           sx={{
@@ -79,7 +78,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
             position: 'absolute',
             bottom: '0',
             left: '25%',
-            transform: 'translateY(0%)',
+            transform: 'translateY(-120%)',
             filter: 'blur(20px)',
             borderRadius: '50%',
             width: '7rem',

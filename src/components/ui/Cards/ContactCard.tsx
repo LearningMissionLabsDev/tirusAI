@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Box, Typography, useTheme } from "@mui/material";
 
@@ -51,10 +52,10 @@ const ContactCard: React.FC<ContactCardProps> = ({ icon, title, description, lin
         src={icon}
         alt={title}
         sx={{
-          width: 33,
-          height: 33,
+          width: 40,
+          height: 40,
         }}
-        pb={2}
+        pb={4}
       />
       <Typography
         sx={{
