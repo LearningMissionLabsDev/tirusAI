@@ -34,10 +34,10 @@ const SmartCard: React.FC<SmartCardProps> = ({
           justifyContent: 'space-between',
           alignItems: 'center',
           gap: 3,
-          p: { xs: 3, sm: 3, md: 4, lg: 8, xl: 8 },
+          p: { xs: 3, sm: 3, md: 4, lg: '70px', xl: 8 },
           mx: 3,
           borderRadius: '20px',
-          border: '5px solid transparent',
+          border: '6px solid transparent',
           backgroundColor: "transparent",
           "& > .content": { position: "relative", zIndex: 1 },
           "&::before": {
@@ -45,7 +45,7 @@ const SmartCard: React.FC<SmartCardProps> = ({
             position: "absolute",
             inset: 0,
             borderRadius: "inherit",
-            padding: "5px",
+            padding: "6px",
             background: "linear-gradient(135deg, #543d9eff 0%, #282E3A 8%, #282E3A 92%, #543d9eff 100% )",
             pointerEvents: "none",
             WebkitMask:

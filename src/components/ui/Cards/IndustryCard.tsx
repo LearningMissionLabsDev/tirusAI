@@ -48,7 +48,7 @@ const IndustryCard: React.FC<IndustryCardProps> = ({ title, description, icon })
         <Box
           sx={{
             width: 'calc(100% - 6px)',
-            minHeight: {xs: 128, sm: 130, md: 130, lg: 130, xl: 150},
+            minHeight: {xs: 128, sm: 130, md: 130, lg: 126, xl: 150},
             maxHeight: '100%',
             borderRadius: '10px',
             backgroundColor: '#0a0f1c',
