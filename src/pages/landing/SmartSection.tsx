@@ -13,10 +13,11 @@ const SmartSection: React.FC = () => {
         width: '100%',
         display: 'flex',
         justifyContent: 'center',
-        py: { xs: 4, md: 20 },
+        py: { xs: 5, md: 20 },
+        m: 0
       }}
     >
-      <Container maxWidth={false} sx={{ maxWidth: 1330, px: { xs: 2, sm: 3 } }}>
+      <Container maxWidth={false} sx={{ maxWidth: 1330, px: { xs: 2, sm: 3 }, m: 0 }}>
         
         {/* Section Title */}
         <Typography
@@ -26,7 +27,7 @@ const SmartSection: React.FC = () => {
             fontWeight: 600,
             color: "#FFFFFFE6",
             textAlign: "center",
-            mb: 6,
+            mb: {xs: 2.5, sm: 2.5, md: 6},
           }}
         >
           {smartSectionData.sectionTitle}

@@ -8,14 +8,14 @@ const Hero: React.FC = () => {
 
   return (
     <Box sx={{ display: "flex", alignItems: "center", height: '100%', flexDirection: "column", textAlign: "center", px: 2 }}>
-      <Typography sx={{ ...theme.typography.h3, fontFamily: "Poppins, sans-serif", color: "#FFFFFFE6", fontWeight: 600, mb: 2, pt: {xs: "10px", sm: "40px", md: "50px", lg: "100px", xl: "130px"} }}>
+      <Typography sx={{ ...theme.typography.h3, fontFamily: "Poppins, sans-serif", color: "#FFFFFFE6", fontWeight: 600, mb: 2, pt: {xs: "70px", sm: "60px", md: "60px", lg: "100px", xl: "135px"} }}>
         {heroData.heading}
       </Typography>
       <Typography sx={{ ...theme.typography.h3, fontFamily: "Poppins, sans-serif", color: "#FFFFFFE6", fontWeight: 400, mb: 2 }}>
         {heroData.subheading}
       </Typography>
 
-      <Typography sx={{ ...theme.typography.body1, fontFamily: "Poppins, sans-serif", color: "#FFFFFFE6", mb: 2, fontWeight: 400, whiteSpace: "pre-line" }}>
+      <Typography sx={{ ...theme.typography.body1, fontFamily: "Poppins, sans-serif", color: "#FFFFFFE6", letterSpacing: 0.8, mb: 2, px: 0, fontWeight: 400, whiteSpace: {xs: 'none', sm: 'pre-line', md: "pre-line", lg: "pre-line", xl: "pre-line"} }}>
         {heroData.description}
       </Typography>
 
