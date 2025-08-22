@@ -8,6 +8,7 @@ const Features: React.FC = () => {
 
   return (
     <Box
+      id='feature'
       component="section"
       sx={{
         width: '100%',
