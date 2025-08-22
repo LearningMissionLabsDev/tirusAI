@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Box, Typography, TextField, useTheme } from "@mui/material";
 import ContactButton from "../ui/Buttons/ContactButton";
@@ -25,8 +24,8 @@ const ContactForm: React.FC<ContactFormCardProps> = ({ title, fields, submitText
         <Box
             sx={{
                 position: "relative",
-                px: { xs: "30px", sm: "30px", md: "25px", lg: "32px", xl: "25px" },
-                py: { xs: "64px", sm: "64px", md: "64px", lg: "64px", xl: "32px" },
+                px: { xs: "30px", sm: "30px", md: "32px", lg: "32px", xl: "32px", xxl: "32px"  },
+                py: { xs: "32px", sm: "32px", md: "64px", lg: "64px", xl: "64px", xxl: "64px" },
                 border: "2px solid transparent",
                 borderRadius: "20px",
                 display: "flex",

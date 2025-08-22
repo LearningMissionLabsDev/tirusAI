@@ -33,9 +33,9 @@ const SmartCard: React.FC<SmartCardProps> = ({
           flexDirection: isMobile ? 'column' : 'row',
           justifyContent: 'space-between',
           alignItems: 'center',
-          gap: 3,
-          p: { xs: 3, sm: 3, md: 4, lg: '70px', xl: 8 },
-          mx: 3,
+          gap: { xs: 1, sm: 1, md: 3 },
+          px: { xs: 2.4, sm: 3, md: 4, lg: '70px', xl: 8 },
+          py: { xs: 3.5, sm: 3.5, md: 4, lg: '70px', xl: 8 },
           borderRadius: '20px',
           border: '6px solid transparent',
           backgroundColor: "transparent",
@@ -71,8 +71,8 @@ const SmartCard: React.FC<SmartCardProps> = ({
               fontWeight: 600,
               lineHeight: 1.4,
               color: '#FFFFFF',
-              mb: 3,
-              whiteSpace: 'pre-line'
+              mb: 2.5,
+              whiteSpace: { xs: 'none', sm: 'none', md: 'pre-line' }
             }}
           >
             {title}
@@ -99,10 +99,10 @@ const SmartCard: React.FC<SmartCardProps> = ({
         {/* Right: Image */}
         <Box
           sx={{
-            flex: 1,
+            width: '100%',
             display: 'flex',
-            justifyContent: { xs: 'center', sm: 'center', md: 'flex-end' },
-            alignItems: { xs: 'center', sm: 'center', md: 'flex-end' },
+            justifyContent: 'flex-end',
+            alignItems: 'flex-end',
             mr: { xs: 0, sm: 0, md: 6 }
           }}
         >
@@ -111,9 +111,10 @@ const SmartCard: React.FC<SmartCardProps> = ({
             src={image}
             alt={title}
             sx={{
-              width: { xs: 260, sm: 260, md: 260, lg: 281, xl: 281 },
+              width: { xs: 171, sm: 260, md: 260, lg: 281, xl: 281 },
               maxWidth: '100%',
               height: 'auto',
+              mr: 2
             }}
           />
         </Box>

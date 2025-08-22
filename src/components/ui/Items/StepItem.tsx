@@ -16,7 +16,8 @@ const StepItem: React.FC<StepItemCardProps> = ({
     <Box
       sx={{
         placeItems: "center",
-        mt: 5
+        mt: 5,
+        px: {xs: '16px', sm: '24px' }
       }}
     >
       <Box
@@ -32,7 +33,7 @@ const StepItem: React.FC<StepItemCardProps> = ({
           sx={{
             position: "absolute",
             left: "50%",
-            transform: "translate(-50%, -65%)",
+            transform: {xs: "translate(-50%, -53%)", sm: "translate(-50%, -59%)", md: "translate(-50%, -66%)", lg: "translate(-50%, -72%)" },
             zIndex: 1,
             display: "flex",
             gap: "16px",
@@ -47,8 +48,8 @@ const StepItem: React.FC<StepItemCardProps> = ({
         <Box
           sx={{
             position: "relative",
-            width: 257,
-            minHeight: 81,
+            width: {xs: '245px', sm: '270px', md: '256px', lg: '255px', xl: '300px' },
+            height: {xs: 66, sm: 66, md: 80 },
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -56,16 +57,17 @@ const StepItem: React.FC<StepItemCardProps> = ({
             flexDirection: "column",
             lineHeight: 1.5,
             borderRadius: "20px",
-            p: { xs: 1.5, sm: 3 },
+            px: { xs: 2.5, sm: 3 },
+            py: { xs: 1, sm: 2, md: 3 },
             zIndex: 2,
             background: "rgb(10 15 28 / 80%)",
             border: "1px solid rgba(255, 255, 255, 0.05)",
-            backdropFilter: "blur(20px)",
+            backdropFilter: "blur(10px)",
           }}
         >
           <Typography
             sx={{
-              ...theme.typography.body1,
+              ...theme.typography.custom,
               fontWeight: 400,
               fontFamily: `"Poppins", sans-serif`,
               color: "#FFFFFFE6",
