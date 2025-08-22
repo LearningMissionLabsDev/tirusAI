@@ -3,9 +3,44 @@ import Button from "../Buttons/Button";
 import headerData from "../../../data/headerData.json";
 import { useTheme } from "@mui/material/styles";
 import TirusLogo from "/assets/TirusLogo.png"; // Correct path based on your folder structure
+import { TARGETS_BY_LABEL, fallbackToId, scrollToId } from "../../ui/scrollToId";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const HeaderDesktop: React.FC = () => {
+
   const theme = useTheme();
+  const navigate = useNavigate?.();         // undefined if not using RR
+  const location = useLocation?.();
+
+  const LINKS = headerData.menuItems.map((label) => ({
+    label,
+    target: TARGETS_BY_LABEL[label] ?? fallbackToId(label),
+  }));
+
+  // Route rules: which labels go to another page
+  const ROUTES_BY_LABEL: Record<string, string> = {
+    "About Us": "/about",
+  };
+
+  const handleNav = (label: string, target: string) => {
+    const route = ROUTES_BY_LABEL[label];
+
+    if (route) {
+      // Go to another page
+      if (navigate) navigate(route);
+      else window.location.href = route; // fallback if no router
+      return;
+    }
+
+    // Scroll to section (if you're not on home, go there with a hash)
+    if (location && location.pathname !== "/") {
+      navigate?.(`/#${target}`);
+      // Optional: on your home page, read location.hash and scroll after mount
+    } else {
+      scrollToId(target);
+    }
+  };
+
 
   return (
     <>
@@ -22,26 +57,32 @@ const HeaderDesktop: React.FC = () => {
       />
 
       <Box sx={{ display: "flex", gap: "48px", flexGrow: 1, justifyContent: "center" }}>
-        {headerData.menuItems.map((item: string) => (
+        {LINKS.map(({ label, target }) => (
           <Typography
-            key={item}
-            color="white"
+            key={target}
+            role="button"
+            tabIndex={0}
+            onClick={() => handleNav(label, target)}
+            onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && handleNav(label, target)}
             sx={{
               ...theme.typography.body2,
               fontFamily: "Poppins, sans-serif",
               cursor: "pointer",
               fontWeight: 400,
               "&:hover": {
-                color: "#e0e0e0",  // Light gray hover effect, closer to white
+                color: "#e0e0e0",
               },
             }}
           >
-            {item}
+            {label}
           </Typography>
         ))}
       </Box>
 
-      <Button onClick={() => console.log("Clicked!")} label={headerData.buttonLabel} />
+      <Button
+        onClick={() => handleNav("Contact Us", "contact")}
+        label={headerData.buttonLabel}
+      />
     </>
   );
 };
