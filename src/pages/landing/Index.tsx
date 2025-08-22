@@ -7,6 +7,9 @@ import StepGradient from '/assets/StepGradient.svg'
 import HeroGradient320 from '/assets/HeroGradient320.svg'
 import HeroGradient900 from '/assets/HeroGradient900.svg'
 import HeroGradient1920 from '/assets/HeroGradient1920.svg'
+import StepGradient320 from '/assets/StepGradient320.svg'
+import ContactUsGradient320 from '/assets/ContactUsGradient320.svg'
+
 import Hero from './Hero';
 import SmartSection from './SmartSection';
 import ContactUs from './ContactUs';
@@ -15,7 +18,6 @@ function ResponsiveImage(props: any) {
   const { src, ...rest } = props;
   const theme = useTheme();
 
-  // Queries per breakpoint
   const xs = useMediaQuery(theme.breakpoints.only("xs"));
   const sm = useMediaQuery(theme.breakpoints.only("sm"));
   const md = useMediaQuery(theme.breakpoints.only("md"));
@@ -66,20 +68,26 @@ const Index: React.FC = () => {
       </Box>
       <Industry />
       <Features />
-      <Box sx={{ position: 'relative' }}>
-        <Box
-          component="img"
-          src={StepGradient}
+      <Box sx={{ position: 'relative', mt: 0 }}>
+        <ResponsiveImage
+          src={{
+            xs: StepGradient320,
+            sm: StepGradient320,
+            md: StepGradient,
+            lg: StepGradient,
+            xl: StepGradient,
+            xxl: StepGradient,
+          }}
           alt="Contact section background gradient"
           sx={{
             position: 'absolute',
-            top: {xs: '60%', sm: '60%', md: '80%', lg: '91%'},
+            top: {xs: '77%', sm: '100%', md: '80%', lg: '91%'},
             left: '50%',
-            transform: 'translate(-50%, -50%)',
+            transform: {xs: 'translate(-50%, -50%)', sm: 'translate(-50%, -50%)', md: 'translate(-50%, -50%)'},
             width: '100%',
             height: 'auto',
             zIndex: 0,
-            filter: { xs: 'blur(40px)', sm: 'blur(59px)', md: 'blur(82px)', lg: 'blur(82px)', xl: 'blur(82px)', xxl: 'blur(120px)' },
+            filter: { xs: 'blur(50px)', sm: 'blur(80px)', md: 'blur(82px)', lg: 'blur(82px)', xl: 'blur(82px)', xxl: 'blur(120px)' },
             pointerEvents: 'none',
           }}
         />
@@ -90,21 +98,27 @@ const Index: React.FC = () => {
         </Box>
       </Box>
       <SmartSection />
-      <Box sx={{ position: 'relative' }}>
-        <Box
-          component="img"
-          src={ContactUsGradient}
+      <Box sx={{ position: 'relative', mt: 0 }}>
+       <ResponsiveImage
+          src={{
+            xs: ContactUsGradient320,
+            sm: ContactUsGradient320,
+            md: ContactUsGradient,
+            lg: ContactUsGradient,
+            xl: ContactUsGradient,
+            xxl: ContactUsGradient,
+          }}
           alt="Contact section background gradient"
           sx={{
             position: 'absolute',
-            top: '67%',
+            top: {xs: '63%', sm: '45%', md: '67%', lg: '67%'},
             left: '50%',
             transform: 'translate(-50%, -50%)',
             objectFit: "cover",
             width: '100%',
-            height: 'auto',
+            height: {xs: '135%', sm: '180%', md: 'auto'},
             zIndex: 0,
-            filter: { xs: 'blur(34px)', sm: 'blur(59px)', md: 'blur(82px)', lg: 'blur(82px)', xl: 'blur(82px)', xxl: 'blur(130px)' },
+            filter: { xs: 'blur(70px)', sm: 'blur(110px)', md: 'blur(82px)', lg: 'blur(82px)', xl: 'blur(82px)', xxl: 'blur(130px)' },
             pointerEvents: 'none',
           }}
         />
