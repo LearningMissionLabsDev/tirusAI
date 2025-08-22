@@ -8,6 +8,7 @@ const SmartSection: React.FC = () => {
 
   return (
     <Box
+      id='smart'
       component="section"
       sx={{
         width: '100%',
@@ -18,7 +19,7 @@ const SmartSection: React.FC = () => {
       }}
     >
       <Container maxWidth={false} sx={{ maxWidth: 1330, px: { xs: 2, sm: 3 }, m: 0 }}>
-        
+
         {/* Section Title */}
         <Typography
           sx={{
@@ -27,7 +28,7 @@ const SmartSection: React.FC = () => {
             fontWeight: 600,
             color: "#FFFFFFE6",
             textAlign: "center",
-            mb: {xs: 2.5, sm: 2.5, md: 6},
+            mb: { xs: 2.5, sm: 2.5, md: 6 },
           }}
         >
           {smartSectionData.sectionTitle}

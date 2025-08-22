@@ -123,7 +123,7 @@ const Index: React.FC = () => {
           }}
         />
         <Box sx={{ position: 'relative', zIndex: 1 }}>
-          <Box sx={{ position: 'relative', zIndex: 1 }}>
+          <Box id='contact' sx={{ position: 'relative', zIndex: 1 }}>
             <ContactUs />
           </Box>
         </Box>
