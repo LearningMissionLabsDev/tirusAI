@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button as MuiButton } from '@mui/material';
+import { Button as MuiButton, useTheme } from '@mui/material';
 
 interface CustomButtonProps {
   onClick: () => void;
@@ -8,14 +8,14 @@ interface CustomButtonProps {
 }
 
 const Button: React.FC<CustomButtonProps> = ({ onClick, label, type = 'button' }) => {
-
+  const theme = useTheme();
   return (
     <MuiButton
       onClick={onClick}
       variant="outlined"
       type={type}
       sx={{
-        fontSize: 16,
+        ...theme.typography.button,
         width: 137,
         height: 40,
         minWidth: 50,

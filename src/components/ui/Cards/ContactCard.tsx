@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Box, Typography, useTheme } from "@mui/material";
 
@@ -18,6 +17,8 @@ const ContactCard: React.FC<ContactCardProps> = ({ icon, title, description, lin
         position: "relative", 
         width: {
           xs: "100%",
+          sm: "100%",
+          md: "381px"
         },
         height: "198px",
         maxHeight: 196,
@@ -27,9 +28,8 @@ const ContactCard: React.FC<ContactCardProps> = ({ icon, title, description, lin
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
+        overflow: "hidden",
         gap: 1,
-        transition: "all 0.3s ease",
-       
       backgroundColor: "transparent",
     "& > .content": { position: "relative", zIndex: 1 },
     "&::before": {
