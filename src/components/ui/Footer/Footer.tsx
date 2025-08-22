@@ -1,3 +1,4 @@
+
 import { Box, Container, Stack, Typography, useTheme } from "@mui/material";
 import footerData from '../../../data/footerData.json';
 import headerData from "../../../data/headerData.json";
@@ -21,7 +22,6 @@ interface FooterData {
 }
 
 const Footer = () => {
-    // Using the footerData which is assumed to be typed from JSON
     const { navLinks, socialLinks, copyright }: FooterData = footerData;
     const theme = useTheme();
     return (
@@ -33,16 +33,16 @@ const Footer = () => {
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                mt: 20
+                mt: { xs: 2, sm: 2, md: 7, lg: 17 }
             }}
         >
-            <Container maxWidth="xl" sx={{ py: '20px', mt: '40px' }}>
+            <Container maxWidth="xl" sx={{ py: '5px', mt: '40px' }}>
                 <Stack
                     direction={{ xs: 'column', md: 'row' }}
                     justifyContent="space-between"
                     alignItems={{ xs: 'center', md: 'center' }}
                     spacing={{ xs: 4, md: 0 }}
-                    mb="50px"
+                    mb={{ xs: "50px", sm: "65px", md: "85px" }}
                 >
                     <Stack
                         direction={{ xs: 'column', md: 'row' }}
@@ -125,7 +125,7 @@ const Footer = () => {
             <Box
                 sx={{
                     width: '100%',
-                    mb: '48px',
+                    mb: '36px',
                     display: 'flex',
                     justifyContent: 'center',
                     py: '3px',
@@ -133,7 +133,7 @@ const Footer = () => {
             >
                 <Typography
                     sx={{
-                        ...theme.typography.body2,
+                        ...theme.typography.mobileMenu,
                         fontFamily: 'Poppins, sans-serif',
                         fontWeight: 400,
                         textAlign: 'center',
