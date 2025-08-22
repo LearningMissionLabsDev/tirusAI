@@ -33,7 +33,7 @@ const Steps: React.FC = () => {
               fontFamily: "Poppins, sans-serif",
               fontWeight: 600,
               display: "block",
-              mb: 6,
+              mb: {xs: 2.5, sm: 2.5, md: 6},
             }}
           >
             {stepsData.sectionTitle}

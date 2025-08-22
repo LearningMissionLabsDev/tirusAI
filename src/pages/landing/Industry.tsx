@@ -10,7 +10,7 @@ const Industry: React.FC = () => {
         width: '100%',
         display: 'flex',
         justifyContent: 'center',
-        mt: {xs: '80px', sm: '80px', md: '120px', lg: '160px', xl: '200px'}
+        mt: {xs: '110px', sm: '100px', md: '100px', lg: '120px', xl: '130px', xxl: '220px'}
       }}
     >
       <Box
@@ -24,7 +24,7 @@ const Industry: React.FC = () => {
           justifyContent="center"
           alignItems="center"
           columns={{ xs: 1, sm: 1, md: 3 }}
-          p={2}
+          px={2}
         >
           {industryData.map((item, idx) => (
              <Grid

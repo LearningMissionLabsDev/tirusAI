@@ -13,13 +13,13 @@ const Features: React.FC = () => {
         width: '100%',
         display: 'flex',
         justifyContent: 'center',
-        py: { xs: 4, md: 20 },
+        py: { xs: 5, md: 20 },
       }}
     >
       <Container
         maxWidth={false}
         sx={{
-          maxWidth: {xs: 600, sm: 600, md: 650, lg: 1200, xl: 1200},
+          maxWidth: {xs: 600, sm: 600, md: 650, lg: 1200, xl: 1450},
           px: { xs: 2, sm: 3, lg: 0 },
         }}
       >
@@ -30,7 +30,8 @@ const Features: React.FC = () => {
             fontWeight: 600,
             color: '#FFFFFFE6',
             textAlign: 'center',
-            mb: 6,
+            mb: {xs: 2.5, sm: 2.5, md: 6},
+            lineHeight: "40px"
           }}
         >
           {featureData.sectionTitle}
@@ -45,7 +46,7 @@ const Features: React.FC = () => {
               md: 'repeat(2, 1fr)',
               lg: 'repeat(4, 1fr)', // 4 across at >=1200px
             },
-            gap: '24px', // exact 24px between cards
+            gap: {xs: 2, sm: 3, md: 3}, // exact 24px between cards
             justifyItems: 'center',
           }}
         >
