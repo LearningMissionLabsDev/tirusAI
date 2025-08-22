@@ -15,7 +15,7 @@ const typographyResponsive = (sizes: ResponsiveSizes) => ({
   '@media (min-width:900px)': { fontSize: sizes.md },
   '@media (min-width:1200px)': { fontSize: sizes.lg },
   '@media (min-width:1536px)': { fontSize: sizes.xl },
-  '@media (min-width:2560px)': { fontSize: sizes.xxl ?? sizes.xl },
+  '@media (min-width:2560px)': { fontSize: sizes.xxl },
 });
 
 declare module '@mui/material/styles' {
@@ -27,9 +27,9 @@ declare module '@mui/material/styles' {
     xl: true;
     xxl: true;
   }
-  interface TypographyVariants { mobileMenu: React.CSSProperties }
-  interface TypographyVariantsOptions { mobileMenu?: React.CSSProperties }
-  interface TypographyPropsVariantOverrides { mobileMenu: true }
+  interface TypographyVariants { mobileMenu: React.CSSProperties, custom: React.CSSProperties, button: React.CSSProperties }
+  interface TypographyVariantsOptions { mobileMenu?: React.CSSProperties, custom?: React.CSSProperties, button?: React.CSSProperties }
+  interface TypographyPropsVariantOverrides { mobileMenu: true, custom: true, button: true }
 }
 
 const theme = createTheme({
@@ -69,6 +69,22 @@ const theme = createTheme({
       xs: '14px', sm: '14.5px', md: '15px', lg: '16px', xl: '18px', xxl: '20px',
     }),
     mobileMenu: { fontSize: '16px' },
+    button: typographyResponsive({
+      xs: '14px',
+      sm: '15px',
+      md: '16px',
+      lg: '16px',
+      xl: '16px',
+      xxl: '16px',
+    }),
+    custom: typographyResponsive({
+      xs: '12px',
+      sm: '14px',
+      md: '16px',
+      lg: '18px',
+      xl: '19px',
+      xxl: '20px',
+    }),
   },
 });
 
