@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  Typography,
   Box,
   IconButton,
   Drawer,
@@ -14,11 +13,28 @@ import Button from "../Buttons/Button";
 import headerData from "../../../data/headerData.json";
 import { useTheme } from "@mui/material/styles";
 import TirusLogo from "/assets/TirusLogo.png";
-import { scrollToId } from "../scrollToId";
+import SidebarGradient from "/assets/SidebarGradient1.svg";
+import { scrollToId } from "../../utils/scrollToId";
+import { TARGETS_BY_LABEL, fallbackToId } from "../../utils/scrollToId";
 
 const HeaderMobile: React.FC = () => {
   const theme = useTheme();
   const [menuOpen, setMenuOpen] = React.useState(false);
+
+  const handleNav = (label: string) => {
+    const target = TARGETS_BY_LABEL[label] ?? fallbackToId(label);
+
+    setMenuOpen(false);
+
+    setTimeout(() => {
+      const el = document.getElementById(target);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      } else {
+        window.location.href = `/#${target}`;
+      }
+    }, 250);
+  };
 
   return (
     <>
@@ -54,59 +70,78 @@ const HeaderMobile: React.FC = () => {
         onClose={() => setMenuOpen(false)}
         PaperProps={{
           sx: {
-            width: 250,
-            px: 2,
+            width: 265,
             py: 2,
-            backgroundImage: "url(/assets/Sidebar.png)",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
+            backgroundColor: "#0A0F1C",
           },
         }}
       >
-        <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", py: 2 }}>
-          <Typography
-            fontWeight="bold"
-            fontSize={32}
-            color="white"
+        <Box
+          component="img"
+          src={SidebarGradient}
+          alt=""
+          aria-hidden
+          sx={{
+            position: "absolute",
+            top: {xs: '40%', sm: '35%',},
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: "100%",
+            height: "auto",
+            objectFit: "cover",
+            pointerEvents: "none",
+            zIndex: 0,
+            filter: "blur(58px)"
+          }}
+        />
+        <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", px: 1.25, py: 2 }}>
+          <Box
+            component="img"
+            src={TirusLogo}
+            alt={headerData.logoText}
             sx={{
-              fontFamily: "Poppins, sans-serif",
-              letterSpacing: 1,
+              height: 32,
+              width: 125,
+              cursor: "pointer",
             }}
-          >
-            {headerData.logoText || "Tirus"}
-          </Typography>
+            onClick={() => console.log("Logo clicked")}
+          />
           <IconButton sx={{ color: "white", p: 0 }} onClick={() => setMenuOpen(false)}>
-            <CloseIcon sx={{ fontSize: 20.59 }} />
+            <CloseIcon sx={{ fontSize: 24 }} />
           </IconButton>
         </Box>
 
-        <Box sx={{ mt: 2 }} role="presentation">
+        <Box sx={{ mt: 1, px: 1.5 }} role="presentation">
           <List sx={{ gap: 2, p: 0, display: "flex", flexDirection: "column" }}>
             {headerData.menuItems.map((item: string) => (
               <ListItem
+                onClick={() => handleNav(item)}
                 key={item}
                 sx={{
                   borderRadius: "20px",
                   border: "1px solid rgba(255,255,255,0.05)",
                   backdropFilter: "blur(2px)",
                   px: "12px",
-                  py: "10px",
+                  py: "7px",
                 }}
               >
                 <ListItemText
                   primaryTypographyProps={{
-                    fontSize: theme.typography.body2.fontSize,
-                    color: "white",
-                    fontFamily: "sans-serif",
+                    sx: {
+                      ...theme.typography.mobileMenu,
+                      color: "white",
+                      fontFamily: "Poppins, sans-serif",
+                    },
                   }}
                   primary={item}
                 />
                 <Box sx={{ pr: "8px" }}>
                   <IconButton
+                    onClick={() => handleNav(item)}
                     edge="end"
                     sx={{
-                      background: "rgba(20,20,30,0.85)",
+                      background: "transparent",
+                      border: "1px solid rgba(255,255,255,0.05)",
                       borderRadius: "50%",
                       color: "white",
                       width: 32,
