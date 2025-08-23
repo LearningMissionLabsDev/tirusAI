@@ -3,7 +3,7 @@ import Button from "../Buttons/Button";
 import headerData from "../../../data/headerData.json";
 import { useTheme } from "@mui/material/styles";
 import TirusLogo from "/assets/TirusLogo.png"; // Correct path based on your folder structure
-import { TARGETS_BY_LABEL, fallbackToId, scrollToId } from "../../ui/scrollToId";
+import { TARGETS_BY_LABEL, fallbackToId, scrollToId } from "../../utils/scrollToId";
 import { useNavigate, useLocation } from "react-router-dom";
 
 const HeaderDesktop: React.FC = () => {
@@ -40,7 +40,6 @@ const HeaderDesktop: React.FC = () => {
       scrollToId(target);
     }
   };
-
 
   return (
     <>
