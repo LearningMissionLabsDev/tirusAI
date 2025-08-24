@@ -1,13 +1,19 @@
 import React from 'react';
-import { Button, useTheme } from '@mui/material';
+import { Button, CircularProgress, useTheme } from '@mui/material';
 
 interface CustomButtonProps {
-  onClick: () => void;
   label: string;
-  type?: 'button' | 'submit' | 'reset';
+  onClick?: () => void;
+  type?: "button" | "submit" | "reset";
+  loading?: boolean;
 }
 
-const ContactButton: React.FC<CustomButtonProps> = ({ onClick, label, type = 'button' }) => {
+const ContactButton: React.FC<CustomButtonProps> = ({ 
+    onClick,
+  label,
+  type = "button",
+  loading = false,
+ }) => {
   const theme = useTheme();
 
   return (
@@ -37,7 +43,14 @@ const ContactButton: React.FC<CustomButtonProps> = ({ onClick, label, type = 'bu
         },
       }}
     >
-      {label}
+      {loading ? (
+        <>
+          <CircularProgress size={18} color="inherit" sx={{ mr: 1 }} />
+          {label}
+        </>
+      ) : (
+        label
+      )}
     </Button>
   );
 };
