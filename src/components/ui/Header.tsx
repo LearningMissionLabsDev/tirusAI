@@ -19,7 +19,7 @@ const Header: React.FC = () => {
         boxShadow: "none",
       }}
     >
-      <Toolbar sx={{ px: 3, py: 1.4 }}>
+      <Toolbar sx={{ px: { xs: "10px", sm: "24px", md: "24px" }, py: 1.4 }}>
         {isSmallScreen ? <HeaderMobile /> : <HeaderDesktop />}
       </Toolbar>
     </AppBar>

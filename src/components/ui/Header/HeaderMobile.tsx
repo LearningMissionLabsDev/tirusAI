@@ -56,7 +56,7 @@ const HeaderMobile: React.FC = () => {
           onClick={() => setMenuOpen(true)}
           edge="start"
         >
-          <MenuIcon sx={{ fontSize: "30.5px", color: "white" }} />
+          <MenuIcon sx={{ fontSize: "32px", color: "white" }} />
         </IconButton>
         <Box
           component="img"
@@ -66,7 +66,7 @@ const HeaderMobile: React.FC = () => {
             height: 32,
             width: 125,
             cursor: "pointer",
-            ml: 1,
+            ml: "10px",
           }}
           onClick={() => navigateTop(navigate, "/")}
         />
