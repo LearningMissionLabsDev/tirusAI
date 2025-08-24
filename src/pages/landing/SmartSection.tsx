@@ -29,6 +29,7 @@ const SmartSection: React.FC = () => {
             color: "#FFFFFFE6",
             textAlign: "center",
             mb: { xs: 2.5, sm: 2.5, md: 6 },
+            lineHeight: "40px"
           }}
         >
           {smartSectionData.sectionTitle}

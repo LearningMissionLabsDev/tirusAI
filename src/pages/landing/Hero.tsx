@@ -2,6 +2,7 @@ import React from "react";
 import { Box, Typography, useTheme } from "@mui/material";
 import heroData from '../../data/heroData.json';
 import Button from "../../components/ui/Buttons/Button";
+import { scrollToId } from "../../components/utils/scrollToId";
 
 const Hero: React.FC = () => {
   const theme = useTheme();
@@ -21,7 +22,7 @@ const Hero: React.FC = () => {
 
       {/* Button on top */}
       <Box sx={{ position: "relative", zIndex: 1, display: "flex", alignItems: "center" }}>
-        <Button onClick={() => console.log("Clicked!")} label={heroData.buttonLabel} />
+        <Button onClick={() => scrollToId("contact")} label={heroData.buttonLabel} />
       </Box>
     </Box>
   );

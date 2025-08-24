@@ -18,7 +18,7 @@ const ContactButton: React.FC<CustomButtonProps> = ({ onClick, label, type = 'bu
       type={type}
       sx={{
         ...theme.typography.body2,
-        height: 54,
+        height: {xs: 48, sm: 48, md: 54},
         minWidth: 50,
         minHeight: 28,
         px: 3,
