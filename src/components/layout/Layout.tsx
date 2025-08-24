@@ -1,14 +1,11 @@
 import React from 'react';
-import type { ReactNode } from 'react';
 import { Box } from '@mui/material';
 import Header from '../ui/Header';
 import Footer from '../ui/Footer/Footer';
+import { Outlet } from 'react-router-dom';
 
-interface LayoutProps {
-  children: ReactNode;
-}
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+const Layout: React.FC = () => {
   return (
     <Box
       sx={{
@@ -26,7 +23,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           flexGrow: 1,
         }}
       >
-        {children}
+        <Outlet /> 
       </Box>
       <Footer/>
     </Box>
