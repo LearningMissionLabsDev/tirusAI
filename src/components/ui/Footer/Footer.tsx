@@ -1,29 +1,56 @@
-
 import { Box, Container, Stack, Typography, useTheme } from "@mui/material";
 import footerData from '../../../data/footerData.json';
 import headerData from "../../../data/headerData.json";
 import TirusLogo from "/assets/TirusLogo.png";
+import { useLocation, useNavigate } from "react-router-dom";
+import { TARGETS_BY_LABEL, fallbackToId, navigateTop, scrollToId } from "../../utils/scrollToId";
+import { useState } from "react";
 
-interface NavLink {
-    title: string;
-    href: string;
-}
+const ROUTES_BY_LABEL: Record<string, string> = {
+    "About Us": "/about",
+};
 
-interface SocialLink {
-    label: string;
-    href: string;
-    icon: string;
-}
+const MODALS_BY_LABEL = {
+    Terms: "terms",
+    Privacy: "privacy",
+} as const;
 
-interface FooterData {
-    navLinks: NavLink[];
-    socialLinks: SocialLink[];
-    copyright: string;
-}
-
-const Footer = () => {
-    const { navLinks, socialLinks, copyright }: FooterData = footerData;
+const Footer: React.FC = () => {
+    const { navLinks, socialLinks, copyright } = footerData;
     const theme = useTheme();
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const [openTerms, setOpenTerms] = useState(false);
+    const [openPrivacy, setOpenPrivacy] = useState(false);
+
+    const handleNav = (label: string, href?: string) => {
+        if (label in MODALS_BY_LABEL) {
+            if (label === "Terms") setOpenTerms(true);
+            if (label === "Privacy") setOpenPrivacy(true);
+            return;
+        }
+
+        const route = ROUTES_BY_LABEL[label];
+        if (route) {
+            navigateTop(navigate, route);
+            return;
+        }
+
+        const target =
+            TARGETS_BY_LABEL[label] ??
+            (href && href.startsWith("#") ? href.slice(1) : undefined) ??
+            fallbackToId(label);
+
+        if (!target) return;
+
+        if (location.pathname !== "/") {
+            navigateTop(navigate, `/#${target}`);
+        } else {
+            scrollToId(target, undefined, "replace");
+        }
+    };
+
     return (
         <Box
             sx={{
@@ -58,7 +85,7 @@ const Footer = () => {
                                 width: 125,
                                 cursor: "pointer",
                             }}
-                            onClick={() => console.log("Logo clicked")}
+                            onClick={() => navigateTop(navigate, "/")}
                         />
                     </Stack>
 
@@ -69,28 +96,43 @@ const Footer = () => {
                         justifyContent="center"
                         textAlign="center"
                     >
-                        {navLinks.map((link) => (
-                            <Typography
-                                key={link.title}
-                                component="a"
-                                href={link.href}
-                                sx={{
-                                    ...theme.typography.body2,
-                                    fontFamily: 'Poppins, sans-serif',
-                                    fontWeight: 400,
-                                    color: 'white',
-                                    textDecoration: 'none',
-                                    "&:hover": {
-                                        textDecoration: 'underline',
-                                    },
-                                }}
-                                alignItems="center"
-                                justifyContent="center"
-                                textAlign="center"
-                            >
-                                {link.title}
-                            </Typography>
-                        ))}
+                        {navLinks.map((link) => {
+                            const isModal = link.title in MODALS_BY_LABEL;
+                            const target =
+                                TARGETS_BY_LABEL[link.title] ??
+                                (link.href.startsWith("#") ? link.href.slice(1) : undefined) ??
+                                fallbackToId(link.title);
+                            const computedHref = isModal
+                                ? "#"
+                                : ROUTES_BY_LABEL[link.title] ?? (target ? `/#${target}` : link.href);
+
+                            return (
+                                <Typography
+                                    key={link.title}
+                                    component="a"
+                                    href={computedHref}
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        handleNav(link.title, link.href);
+                                    }}
+                                    sx={{
+                                        ...theme.typography.body2,
+                                        fontFamily: 'Poppins, sans-serif',
+                                        fontWeight: 400,
+                                        color: 'white',
+                                        textDecoration: 'none',
+                                        "&:hover": {
+                                            textDecoration: 'underline',
+                                        },
+                                    }}
+                                    alignItems="center"
+                                    justifyContent="center"
+                                    textAlign="center"
+                                >
+                                    {link.title}
+                                </Typography>
+                            );
+                        })}
                     </Stack>
 
                     <Stack
