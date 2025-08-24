@@ -20,7 +20,6 @@ const Hero: React.FC = () => {
         {heroData.description}
       </Typography>
 
-      {/* Button on top */}
       <Box sx={{ position: "relative", zIndex: 1, display: "flex", alignItems: "center" }}>
         <Button onClick={() => scrollToId("contact")} label={heroData.buttonLabel} />
       </Box>
