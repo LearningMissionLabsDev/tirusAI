@@ -14,10 +14,17 @@ import headerData from "../../../data/headerData.json";
 import { useTheme } from "@mui/material/styles";
 import TirusLogo from "/assets/TirusLogo.png";
 import SidebarGradient from "/assets/SidebarGradient1.svg";
-import { scrollToId } from "../../utils/scrollToId";
+import { navigateTop, scrollToId } from "../../utils/scrollToId";
 import { TARGETS_BY_LABEL, fallbackToId } from "../../utils/scrollToId";
+import { useLocation, useNavigate } from "react-router-dom";
+
+const ROUTES_BY_LABEL: Record<string, string> = {
+  "About Us": "/about",
+};
 
 const HeaderMobile: React.FC = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const theme = useTheme();
   const [menuOpen, setMenuOpen] = React.useState(false);
 
@@ -27,11 +34,16 @@ const HeaderMobile: React.FC = () => {
     setMenuOpen(false);
 
     setTimeout(() => {
-      const el = document.getElementById(target);
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      const route = ROUTES_BY_LABEL[label];
+      if (route) {
+        navigateTop(navigate, route);
+        return;
+      }
+
+      if (location.pathname !== "/") {
+        navigateTop(navigate, `/#${target}`);
       } else {
-        window.location.href = `/#${target}`;
+        scrollToId(target, undefined, "replace");
       }
     }, 250);
   };
@@ -56,12 +68,15 @@ const HeaderMobile: React.FC = () => {
             cursor: "pointer",
             ml: 1,
           }}
-          onClick={() => console.log("Logo clicked")}
+          onClick={() => navigateTop(navigate, "/")}
         />
       </Box>
 
       <Box sx={{ flex: "1 0 auto", display: "flex", justifyContent: "flex-end" }}>
-        <Button onClick={() => scrollToId("contact")} label={headerData.buttonLabel} />
+        <Button onClick={() => {
+          if (location.pathname !== "/") navigateTop(navigate, "/#contact");
+          else scrollToId("contact");
+        }} label={headerData.buttonLabel} />
       </Box>
 
       <Drawer
@@ -83,7 +98,7 @@ const HeaderMobile: React.FC = () => {
           aria-hidden
           sx={{
             position: "absolute",
-            top: {xs: '40%', sm: '35%',},
+            top: { xs: '40%', sm: '35%', },
             left: '50%',
             transform: 'translate(-50%, -50%)',
             width: "100%",
@@ -104,7 +119,10 @@ const HeaderMobile: React.FC = () => {
               width: 125,
               cursor: "pointer",
             }}
-            onClick={() => console.log("Logo clicked")}
+            onClick={() => {
+              setMenuOpen(false);
+              setTimeout(() => navigateTop(navigate, "/"), 250);
+            }}
           />
           <IconButton sx={{ color: "white", p: 0 }} onClick={() => setMenuOpen(false)}>
             <CloseIcon sx={{ fontSize: 24 }} />
@@ -121,6 +139,7 @@ const HeaderMobile: React.FC = () => {
                   borderRadius: "20px",
                   border: "1px solid rgba(255,255,255,0.05)",
                   backdropFilter: "blur(2px)",
+                  cursor: "pointer",
                   px: "12px",
                   py: "7px",
                 }}
@@ -146,6 +165,7 @@ const HeaderMobile: React.FC = () => {
                       color: "white",
                       width: 32,
                       height: 32,
+                      cursor: "pointer",
                       "&:hover": {
                         background: "rgba(255,255,255,0.15)",
                       },
