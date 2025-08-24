@@ -13,6 +13,9 @@ import ContactUsGradient320 from '/assets/ContactUsGradient320.svg'
 import Hero from './Hero';
 import SmartSection from './SmartSection';
 import ContactUs from './ContactUs';
+import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
+import { scrollToId } from '../../components/utils/scrollToId';
 
 function ResponsiveImage(props: any) {
   const { src, ...rest } = props;
@@ -34,7 +37,16 @@ function ResponsiveImage(props: any) {
 
   return <Box component="img" src={selectedSrc} {...rest} />;
 }
-const Index: React.FC = () => {
+const Landing: React.FC = () => {
+   const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.slice(1);
+      setTimeout(() => scrollToId(id), 0);
+    }
+  }, [location.hash]);
+
   return (
     <>
       <Box sx={{ position: 'relative', mt: 0 }}>
@@ -132,4 +144,4 @@ const Index: React.FC = () => {
   );
 };
 
-export default Index;
+export default Landing;

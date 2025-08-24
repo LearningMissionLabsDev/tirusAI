@@ -1,6 +1,6 @@
 {
   "navLinks": [
-    { "title": "About Us", "href": "#" },
+    { "title": "About Us", "href": "/about" },
     { "title": "Contact", "href": "#" },
     { "title": "Terms", "href": "#" },
     { "title": "Privacy", "href": "#" }
