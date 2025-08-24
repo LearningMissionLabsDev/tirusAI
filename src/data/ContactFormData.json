@@ -7,5 +7,10 @@
   ],
   "submitButton": {
     "text": "Send"
+  },
+  "messages": {
+    "validationError": "Please provide your name, email, and message.",
+    "success": "Thanks! Your message has been sent.",
+    "failure": "Sorry, sending failed. Please try again later."
   }
 }
