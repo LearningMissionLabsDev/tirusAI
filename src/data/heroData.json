@@ -1,6 +1,5 @@
 {
-  "heading": "Meet Your New Team Member-AI",
-  "subheading": "That drives your success",
-  "description": "Powered by agentic AI, our chatbot goes beyond replies it \nunderstands, adapts and solves.",
-  "buttonLabel": "Get Started"
+  "logoText": "Tirusᴬᴵ",
+  "menuItems": ["Solutions","Possibility", "About Us"],
+  "buttonLabel": "Contact Us"
 }
