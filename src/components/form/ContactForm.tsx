@@ -1,23 +1,64 @@
 import React, { useState } from "react";
 import { Box, Typography, TextField, useTheme } from "@mui/material";
 import ContactButton from "../ui/Buttons/ContactButton";
+import AppSnackbar from "../utils/AppSnackbar";
+
 type Field = { label: string };
 
 interface ContactFormCardProps {
     title: string;
     submitText: string;
     fields: Field[];
+    messages: {
+        validationError: string;
+        success: string;
+        failure: string;
+    };
 }
 
-const ContactForm: React.FC<ContactFormCardProps> = ({ title, fields, submitText }) => {
+const API_URL = "/api/contact";
+
+const ContactForm: React.FC<ContactFormCardProps> = ({ title, fields, messages, submitText }) => {
+    const theme = useTheme();
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
-    const theme = useTheme();
+    const [loading, setLoading] = useState(false);
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const [snack, setSnack] = useState({
+        open: false,
+        message: "",
+        severity: "info" as "success" | "error" | "info" | "warning",
+    });
+    const closeSnack = () => setSnack(s => ({ ...s, open: false }));
+
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        console.log("Form submitted:", { name, email, message });
+
+        const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+        if (!name.trim() || !emailOk || !message.trim()) {
+            setSnack({ open: true, message: messages.validationError, severity: "error" });
+            return;
+        }
+
+        setLoading(true);
+        try {
+            const res = await fetch(API_URL, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ name: name.trim(), email: email.trim(), message: message.trim() }),
+            });
+
+            const data = await res.json().catch(() => ({} as any));
+            if (!res.ok || !data?.ok) throw new Error(data?.error || "Request failed");
+
+            setSnack({ open: true, message: messages.success, severity: "success" });
+            setName(""); setEmail(""); setMessage("");
+        } catch {
+            setSnack({ open: true, message: messages.failure, severity: "error" });
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
@@ -57,7 +98,7 @@ const ContactForm: React.FC<ContactFormCardProps> = ({ title, fields, submitText
                 },
             }}
         >
-            <Typography sx={{ ...theme.typography.body1, fontWeight: 400, fontFamily: "Poppins, sans-serif", color: "#FFFFFFE6", marginBottom: 4, whiteSpace: {xs: 'none', sm: 'pre-line', md: 'pre-line'}, }}>
+            <Typography sx={{ ...theme.typography.body1, fontWeight: 400, fontFamily: "Poppins, sans-serif", color: "#FFFFFFE6", marginBottom: 4, whiteSpace: { xs: 'none', sm: 'pre-line', md: 'pre-line' }, }}>
                 {title}
             </Typography>
             <Box
@@ -190,11 +231,18 @@ const ContactForm: React.FC<ContactFormCardProps> = ({ title, fields, submitText
                     onChange={(e) => setMessage(e.target.value)}
                 />
                 <ContactButton
-                    label={submitText}
-                    onClick={() => console.log("Submitted")}
+                    label={loading ? "Sending..." : submitText}
                     type="submit"
+                    loading={loading}
                 />
             </Box>
+            <AppSnackbar
+                open={snack.open}
+                message={snack.message}
+                severity={snack.severity}
+                onClose={closeSnack}
+                autoHideDuration={3000}
+            />
         </Box>
     );
 };
