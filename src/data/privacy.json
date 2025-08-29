@@ -8,7 +8,7 @@
             "title": "Who we are",
             "paragraphs": [
                 "Tirus AI (“Tirus AI,” “we,” “us,” or “our”) is a consulting company that helps organizations adopt and operate agentic AI systems. This Privacy Policy applies to our websites, communications, and consulting services (collectively, the “Services”).",
-                "Contact: info@tirus.ai • 3200 Fairesta str. Unit 2, La Crescenta, CA, 91214"
+                "<p style='margin-top:24px'><span style='font-weight:500'>Contact:</span> info@tirus.ai • 3200 Fairesta str. Unit 2, La Crescenta, CA, 91214</p>"
             ]
         },
         {
@@ -58,7 +58,7 @@
                 {
                     "title": "AI-specific uses:",
                     "bullets": [
-                        "We do not use your confidential client data to train foundation models unless you give us written consent (e.g., in a Statement of Work (SOW) or Data Processing Addendum (DPA)).",
+                        "We do <span style='font-weight:500'>not</span> use your confidential client data to train foundation models unless you give us written consent (e.g., in a Statement of Work (SOW) or Data Processing Addendum (DPA)).",
                         "When we route your inputs to third-party AI APIs or tools (at your request or as part of an agreed solution), your data may be processed by those providers under their terms."
                     ]
                 }
@@ -78,9 +78,9 @@
                 "We share information with:"
             ],
             "bullets": [
-                "Service providers/subprocessors (hosting, AI/LLM vendors, analytics, email, support). We require appropriate confidentiality and security commitments.",
-                "Business transfers (merger, acquisition, asset sale) with notice where required.",
-                "Legal compliance (lawful requests, enforcement of rights, prevention of harm)."
+                "<span style='font-weight:500'>Service providers/subprocessors</span> (hosting, AI/LLM vendors, analytics, email, support). We require appropriate confidentiality and security commitments.",
+                "<span style='font-weight:500'>Business transfers</span> (merger, acquisition, asset sale) with notice where required.",
+                "<span style='font-weight:500'>Legal compliance</span> (lawful requests, enforcement of rights, prevention of harm)."
             ],
             "postParagraphs": [
                 "We do not sell personal information."
@@ -156,7 +156,7 @@
             "number": 14,
             "title": "How to contact us",
             "paragraphs": [
-                "Questions or requests: info@tirus.ai"
+                "Questions or requests: <a href='mailto:info@tirus.ai' style='text-decoration:underline; color:#86a4ff'>info@tirus.ai</a>"
             ]
         }
     ]
