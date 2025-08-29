@@ -4,16 +4,12 @@ import headerData from "../../../data/headerData.json";
 import TirusLogo from "/assets/TirusLogo.png";
 import { useLocation, useNavigate } from "react-router-dom";
 import { TARGETS_BY_LABEL, fallbackToId, navigateTop, scrollToId } from "../../utils/scrollToId";
-import { useState } from "react";
 
 const ROUTES_BY_LABEL: Record<string, string> = {
     "About Us": "/about",
+    "Terms": "/terms",
+    "Privacy": "/privacy"
 };
-
-const MODALS_BY_LABEL = {
-    Terms: "terms",
-    Privacy: "privacy",
-} as const;
 
 const Footer: React.FC = () => {
     const { navLinks, socialLinks, copyright } = footerData;
@@ -21,16 +17,7 @@ const Footer: React.FC = () => {
     const navigate = useNavigate();
     const location = useLocation();
 
-    const [openTerms, setOpenTerms] = useState(false);
-    const [openPrivacy, setOpenPrivacy] = useState(false);
-
     const handleNav = (label: string, href?: string) => {
-        if (label in MODALS_BY_LABEL) {
-            if (label === "Terms") setOpenTerms(true);
-            if (label === "Privacy") setOpenPrivacy(true);
-            return;
-        }
-
         const route = ROUTES_BY_LABEL[label];
         if (route) {
             navigateTop(navigate, route);
@@ -97,14 +84,13 @@ const Footer: React.FC = () => {
                         textAlign="center"
                     >
                         {navLinks.map((link) => {
-                            const isModal = link.title in MODALS_BY_LABEL;
                             const target =
                                 TARGETS_BY_LABEL[link.title] ??
-                                (link.href.startsWith("#") ? link.href.slice(1) : undefined) ??
+                                (link.href?.startsWith("#") ? link.href.slice(1) : undefined) ??
                                 fallbackToId(link.title);
-                            const computedHref = isModal
-                                ? "#"
-                                : ROUTES_BY_LABEL[link.title] ?? (target ? `/#${target}` : link.href);
+
+                            const computedHref =
+                                ROUTES_BY_LABEL[link.title] ?? (target ? `/#${target}` : link.href ?? "#");
 
                             return (
                                 <Typography
