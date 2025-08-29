@@ -48,6 +48,8 @@ export const TARGETS_BY_LABEL: Record<string, string> = {
   Possibility: "smart",
   Solutions: "feature",
   "About Us": "about",
+  "Privacy": "privacy",
+  "Terms": "term",
   "Contact Us": "contact",
   Contact: "contact",
 };
