@@ -6,9 +6,9 @@
     { "title": "Privacy", "href": "#" }
   ],
   "socialLinks": [
-    { "icon": "/assets/Facebook.png", "href": "#", "label": "Facebook" },
-    { "icon": "/assets/Instagram.png", "href": "#", "label": "Instagram" },
-    { "icon": "/assets/Linkedin.png", "href": "#", "label": "LinkedIn" }
+    { "icon": "/assets/FBInactive.svg", "href": "#", "label": "Facebook" },
+    { "icon": "/assets/IGInactive.svg", "href": "#", "label": "Instagram" },
+    { "icon": "/assets/LKInactive.svg", "href": "#", "label": "LinkedIn" }
   ],
   "copyright": "© 2025 Tirus. All rights reserved"
 }
