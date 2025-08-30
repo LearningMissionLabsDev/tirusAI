@@ -2,7 +2,6 @@ import React from "react";
 import { Box, Typography, useTheme } from "@mui/material";
 import aboutHeroData from '../../data/aboutHeroData.json';
 import Button from "../../components/ui/Buttons/Button";
-import { scrollToId } from "../../components/utils/scrollToId";
 import { useNavigate } from "react-router-dom";
 
 const AboutHero: React.FC = () => {

@@ -20,7 +20,6 @@ const SmartSection: React.FC = () => {
     >
       <Container maxWidth={false} sx={{ maxWidth: 1330, px: { xs: 2, sm: 3 }, m: 0 }}>
 
-        {/* Section Title */}
         <Typography
           sx={{
             ...theme.typography.h3,
@@ -35,7 +34,6 @@ const SmartSection: React.FC = () => {
           {smartSectionData.sectionTitle}
         </Typography>
 
-        {/* Smart Card */}
         <SmartCard
           title={smartSectionData.item1.title}
           description={smartSectionData.item1.description}

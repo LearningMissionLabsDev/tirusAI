@@ -45,9 +45,9 @@ const Features: React.FC = () => {
               xs: '1fr',
               sm: 'repeat(2, 1fr)',
               md: 'repeat(2, 1fr)',
-              lg: 'repeat(4, 1fr)', // 4 across at >=1200px
+              lg: 'repeat(4, 1fr)',
             },
-            gap: {xs: 2, sm: 3, md: 3}, // exact 24px between cards
+            gap: {xs: 2, sm: 3, md: 3},
             justifyItems: 'center',
           }}
         >

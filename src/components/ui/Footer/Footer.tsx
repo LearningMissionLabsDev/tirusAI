@@ -150,7 +150,7 @@ const Footer: React.FC = () => {
                                                 {
                                                     name: "offset",
                                                     options: {
-                                                        offset: isMdUp ? [0, -10] : [0, -18], // ↓ reduce vertical gap (default ~8px)
+                                                        offset: isMdUp ? [0, -10] : [0, -18],
                                                     },
                                                 },
                                             ],
