@@ -16,8 +16,11 @@ import ContactUs from './ContactUs';
 import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import { scrollToId } from '../../components/utils/scrollToId';
+import { useDocumentTitle } from '../../hooks';
 
 function ResponsiveImage(props: any) {
+  useDocumentTitle("Landing");
+
   const { src, ...rest } = props;
   const theme = useTheme();
 

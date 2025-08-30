@@ -8,6 +8,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import { useTheme } from "@mui/material/styles";
 import rawTerms from "../../data/terms.json";
+import { useDocumentTitle } from "../../hooks";
 
 function parseCustomBold(text: string) {
   return text
@@ -29,6 +30,7 @@ const TOKENS = {
 const terms = rawTerms as any;
 
 export default function TermsPage() {
+  useDocumentTitle("Terms of Service");
   const theme = useTheme();
 
   return (

@@ -8,6 +8,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import { useTheme } from "@mui/material/styles";
 import rawPolicy from "../../data/privacy.json";
+import { useDocumentTitle } from "../../hooks";
 
 type LabeledParagraph = {
   label: string;
@@ -59,6 +60,7 @@ const TOKENS = {
 const policy = rawPolicy as Policy;
 
 export default function PrivacyPage() {
+  useDocumentTitle("Privacy Policy");
   const theme = useTheme();
 
   return (

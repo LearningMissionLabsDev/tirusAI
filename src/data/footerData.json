@@ -10,5 +10,6 @@
     { "icon": "/assets/IGInactive.svg", "href": "#", "label": "Instagram" },
     { "icon": "/assets/LKInactive.svg", "href": "#", "label": "LinkedIn" }
   ],
-  "copyright": "© 2025 Tirus. All rights reserved"
+  "copyright": "© 2025 Tirus. All rights reserved",
+  "status": "Coming soon"
 }

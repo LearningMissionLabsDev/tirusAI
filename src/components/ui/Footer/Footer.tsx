@@ -1,4 +1,4 @@
-import { Box, Container, Stack, Tooltip, Typography, useTheme } from "@mui/material";
+import { Box, Container, Stack, Tooltip, Typography, useMediaQuery, useTheme } from "@mui/material";
 import footerData from '../../../data/footerData.json';
 import headerData from "../../../data/headerData.json";
 import TirusLogo from "/assets/TirusLogo.png";
@@ -14,6 +14,7 @@ const ROUTES_BY_LABEL: Record<string, string> = {
 const Footer: React.FC = () => {
     const { navLinks, socialLinks, copyright } = footerData;
     const theme = useTheme();
+    const isMdUp = useMediaQuery(theme.breakpoints.up("md"));
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -139,13 +140,41 @@ const Footer: React.FC = () => {
                                     justifyContent: 'center',
                                 }}
                             >
-                                <Tooltip title="Coming soon">
-                                    <Box
-                                        component="img"
-                                        src={social.icon}
-                                        alt={social.label}
-                                        sx={{ width: 24, height: 24, cursor: "not-allowed" }}
-                                    />
+                                <Tooltip
+                                    title={footerData.status}
+                                    enterTouchDelay={0}
+                                    leaveTouchDelay={2000}
+                                    slotProps={{
+                                        popper: {
+                                            modifiers: [
+                                                {
+                                                    name: "offset",
+                                                    options: {
+                                                        offset: isMdUp ? [0, -10] : [0, -18], // ↓ reduce vertical gap (default ~8px)
+                                                    },
+                                                },
+                                            ],
+                                        },
+                                        tooltip: {
+                                            sx: {
+                                                ...theme.typography.body2,
+                                                px: 1,
+                                                py: 0.25,
+                                                borderRadius: "4px",
+                                                fontFamily: "Poppins, sans-serif"
+                                            }
+                                        }
+                                    }}
+                                >
+                                    <a
+                                        href="#"
+                                        onClick={(e) => e.preventDefault()}
+                                        aria-disabled="true"
+                                        style={{ cursor: "not-allowed", }}
+                                        title="Coming soon"
+                                    >
+                                        <Box component="img" src={social.icon} alt={social.label} sx={{ width: 24, height: 24 }} />
+                                    </a>
                                 </Tooltip>
                             </Box>
                         ))}

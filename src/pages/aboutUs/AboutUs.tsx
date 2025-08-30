@@ -6,6 +6,7 @@ import HeroGradient1920 from '/assets/HeroGradient1920.svg'
 import StepGradient320 from '/assets/StepGradient320.svg'
 import AboutHero from './AboutHero';
 import Members from './Members';
+import { useDocumentTitle } from "../../hooks";
 
 function ResponsiveImage(props: any) {
   const { src, ...rest } = props;
@@ -28,6 +29,8 @@ function ResponsiveImage(props: any) {
   return <Box component="img" src={selectedSrc} {...rest} />;
 }
 const AboutUs: React.FC = () => {
+  useDocumentTitle("About");
+
   return (
     <>
       <Box sx={{ position: 'relative', mt: 0 }}>
