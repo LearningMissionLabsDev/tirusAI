@@ -1,4 +1,4 @@
-import { Box, Container, Stack, Typography, useTheme } from "@mui/material";
+import { Box, Container, Stack, Tooltip, Typography, useTheme } from "@mui/material";
 import footerData from '../../../data/footerData.json';
 import headerData from "../../../data/headerData.json";
 import TirusLogo from "/assets/TirusLogo.png";
@@ -139,12 +139,14 @@ const Footer: React.FC = () => {
                                     justifyContent: 'center',
                                 }}
                             >
-                                <Box
-                                    component="img"
-                                    src={social.icon}
-                                    alt={social.label}
-                                    sx={{ width: 24, height: 24, cursor: 'pointer' }}
-                                />
+                                <Tooltip title="Coming soon">
+                                    <Box
+                                        component="img"
+                                        src={social.icon}
+                                        alt={social.label}
+                                        sx={{ width: 24, height: 24, cursor: "not-allowed" }}
+                                    />
+                                </Tooltip>
                             </Box>
                         ))}
                     </Stack>
