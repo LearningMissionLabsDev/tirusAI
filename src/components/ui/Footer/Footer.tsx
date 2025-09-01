@@ -133,6 +133,7 @@ const Footer: React.FC = () => {
                                 key={social.label}
                                 component="a"
                                 href={social.href}
+                                target="_blank"
                                 aria-label={social.label}
                                 sx={{
                                     display: 'flex',
