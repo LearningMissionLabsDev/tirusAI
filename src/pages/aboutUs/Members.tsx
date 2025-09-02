@@ -26,7 +26,7 @@ const Members: React.FC = () => {
             >
                 {membersData.sectionTitle}
             </Typography>
-            <Grid container maxWidth={1400} spacing={{ xs: 3, sm: 3, md: 3, lg: 3, xl: 3, xxl: 5 }} px={{ xs: 2, sm: 2, md: 3, lg: 5, xl: 10, xxl: 2 }} rowSpacing={{ xs: 3, sm: 3, md: 4, lg: 4, xl: 5, xxl: 7 }} display="flex" justifyContent="center" alignItems={"center" } mx="auto">
+            <Grid container maxWidth={1400} spacing={{ xs: 3, sm: 3, md: 3, lg: 3, xl: 3, xxl: 5 }} px={{ xs: 2, sm: 2, md: 3, lg: 5, xl: 10, xxl: 2 }} rowSpacing={{ xs: 3, sm: 3, md: 4, lg: 4, xl: 4, xxl: 7 }} display="flex" justifyContent="center" alignItems={"center" } mx="auto">
                 {(membersData.items as Member[]).map((m) => (
                     <Grid item key={`${m.name}-${m.role}`}
                         xs={12}

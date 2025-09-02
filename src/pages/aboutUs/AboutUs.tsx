@@ -93,7 +93,7 @@ const AboutUs: React.FC = () => {
             pointerEvents: 'none',
           }}
         />
-        <Box sx={{ position: 'relative', pb: { xs: 2, sm: 2, md: 7, lg: 12, xl: 17, xxl: 35 }, zIndex: 1 }}>
+        <Box sx={{ position: 'relative', pb: { xs: 2, sm: 2, md: 7, lg: 12, xl: 18, xxl: 35 }, zIndex: 1 }}>
           <Box sx={{ position: 'relative', zIndex: 1 }}>
             <Members />
           </Box>
