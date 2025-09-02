@@ -13,6 +13,7 @@ const Layout: React.FC = () => {
         minHeight: '100vh',
         display: 'flex',
         flexDirection: 'column',
+        overflowX: 'hidden',
       }}
     >
       <Header />
@@ -23,9 +24,9 @@ const Layout: React.FC = () => {
           flexGrow: 1,
         }}
       >
-        <Outlet /> 
+        <Outlet />
       </Box>
-      <Footer/>
+      <Footer />
     </Box>
   );
 };

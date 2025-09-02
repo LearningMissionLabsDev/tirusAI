@@ -29,6 +29,9 @@ const Button: React.FC<CustomButtonProps> = ({ onClick, label, type = 'button' }
         backgroundColor: 'transparent',
         textTransform: 'none',
         fontFamily: "sans-serif",
+        whiteSpace: 'nowrap',   // <- no wrapping
+        lineHeight: 1.2,        // <- keep text on one line nicely
+        display: 'inline-flex', // <- consistent layout
         fontWeight: 400,
         '&:hover': {
           backgroundColor: 'rgba(255, 255, 255, 0.05)',

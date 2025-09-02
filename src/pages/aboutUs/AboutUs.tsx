@@ -33,7 +33,7 @@ const AboutUs: React.FC = () => {
 
   return (
     <>
-      <Box sx={{ position: 'relative', mb: 0 }}>
+      <Box sx={{ position: 'relative', minHeight: '100%', mb: 0 }}>
         <ResponsiveImage
           src={{
             xs: HeroGradient320,
