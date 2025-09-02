@@ -10,7 +10,7 @@ const Industry: React.FC = () => {
         width: '100%',
         display: 'flex',
         justifyContent: 'center',
-        mt: {xs: '130px', sm: '100px', md: '100px', lg: '120px', xl: '150px', xxl: '220px'}
+        mt: {xs: '130px', sm: '140px', md: '120px', lg: '120px', xl: '150px', xxl: '220px'}
       }}
     >
       <Box
