@@ -83,7 +83,7 @@ const AboutUs: React.FC = () => {
           alt=""
           sx={{
             position: 'absolute',
-            top: { xs: '70%', sm: '80%', md: '75%', lg: '67%', xl: '70%', xxl: '65%' },
+            top: { xs: '70%', sm: '80%', md: '75%', lg: '71%', xl: '70%', xxl: '65%' },
             left: '50%',
             transform: { xs: 'translate(-50%, -50%)', sm: 'translate(-50%, -50%)', md: 'translate(-50%, -50%)' },
             width: '100%',
@@ -93,7 +93,7 @@ const AboutUs: React.FC = () => {
             pointerEvents: 'none',
           }}
         />
-        <Box sx={{ position: 'relative', pb: { xs: 2, sm: 2, md: 7, lg: 17, xl: 17, xxl: 35 }, zIndex: 1 }}>
+        <Box sx={{ position: 'relative', pb: { xs: 2, sm: 2, md: 7, lg: 12, xl: 17, xxl: 35 }, zIndex: 1 }}>
           <Box sx={{ position: 'relative', zIndex: 1 }}>
             <Members />
           </Box>
