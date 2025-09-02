@@ -138,7 +138,7 @@ const Landing: React.FC = () => {
           }}
         />
         <Box sx={{ position: 'relative', zIndex: 1 }}>
-          <Box id='contact' sx={{ position: 'relative', zIndex: 1 }}>
+          <Box id='contact' sx={{ position: 'relative', mb: { xs: 2, sm: 2, md: 7, lg: 17 }, zIndex: 1 }}>
             <ContactUs />
           </Box>
         </Box>

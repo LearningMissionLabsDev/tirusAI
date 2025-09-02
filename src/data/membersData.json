@@ -4,52 +4,52 @@
     {
       "name": "Rouben Gargaloyan",
       "role": "Founder",
-      "image": "/assets/Rouben.svg"
+      "image": "/assets/Rouben.png"
     },
     {
       "name": "Roman Kocharyan",
       "role": "Technical Lead",
-      "image": "/assets/Roman.svg"
+      "image": "/assets/Roman.png"
     },
     {
       "name": "Tigran Sarukhanyan",
       "role": "Technical Lead",
-      "image": "/assets/Tigran.svg"
+      "image": "/assets/Tigran1.png"
     },
     {
       "name": "Vlad Abrahamian",
       "role": "Technical Lead",
-      "image": "/assets/Vlad.svg"
+      "image": "/assets/Vlad.png"
     },
     {
       "name": "Meri Shamiryan",
       "role": "UI/UX Designer",
-      "image": "/assets/Meri.svg"
+      "image": "/assets/Meri.png"
     },
     {
       "name": "Mari Chakryan",
       "role": "Marketing Manager",
-      "image": "/assets/Mari.svg"
+      "image": "/assets/Mari.png"
     },
     {
       "name": "Hovsep Hovsepyan",
       "role": "Sr. Soft Engineer",
-      "image": "/assets/Hovsep.svg"
+      "image": "/assets/Hovsep.png"
     },
     {
       "name": "Abraham Abajanyan",
       "role": "Sr. Soft Engineer",
-      "image": "/assets/Abraham.svg"
+      "image": "/assets/Abraham.png"
     },
     {
       "name": "Hasmik Alexanyan",
       "role": "Intern",
-      "image": "/assets/Hasmik.svg"
+      "image": "/assets/Hasmik.png"
     },
     {
       "name": "Artush Kharatyan",
       "role": "Intern",
-      "image": "/assets/Artush.svg"
+      "image": "/assets/Artush.png"
     }
   ]
 }
