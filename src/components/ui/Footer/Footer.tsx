@@ -140,42 +140,7 @@ const Footer: React.FC = () => {
                                     justifyContent: 'center',
                                 }}
                             >
-                                <Tooltip
-                                    title={footerData.status}
-                                    enterTouchDelay={0}
-                                    leaveTouchDelay={2000}
-                                    slotProps={{
-                                        popper: {
-                                            modifiers: [
-                                                {
-                                                    name: "offset",
-                                                    options: {
-                                                        offset: isMdUp ? [0, -10] : [0, -18],
-                                                    },
-                                                },
-                                            ],
-                                        },
-                                        tooltip: {
-                                            sx: {
-                                                ...theme.typography.body2,
-                                                px: 1,
-                                                py: 0.25,
-                                                borderRadius: "4px",
-                                                fontFamily: "Poppins, sans-serif"
-                                            }
-                                        }
-                                    }}
-                                >
-                                    <a
-                                        href="#"
-                                        onClick={(e) => e.preventDefault()}
-                                        aria-disabled="true"
-                                        style={{ cursor: "not-allowed", }}
-                                        title="Coming soon"
-                                    >
-                                        <Box component="img" src={social.icon} alt={social.label} sx={{ width: 24, height: 24 }} />
-                                    </a>
-                                </Tooltip>
+                                <Box component="img" src={social.icon} alt={social.label} sx={{ width: 24, height: 24 }} />
                             </Box>
                         ))}
                     </Stack>
