@@ -33,7 +33,7 @@ const AboutUs: React.FC = () => {
 
   return (
     <>
-      <Box sx={{ position: 'relative', mt: 0 }}>
+      <Box sx={{ position: 'relative', mb: 0 }}>
         <ResponsiveImage
           src={{
             xs: HeroGradient320,
@@ -57,7 +57,7 @@ const AboutUs: React.FC = () => {
           }}
         />
         <Box sx={{ position: 'relative', zIndex: 1 }}>
-          <Box sx={{ position: 'relative', zIndex: 1 }}>
+          <Box sx={{ position: 'relative', mb: {xs: 0, sm: 0, md: 1, lg: 1, xxl: 12}, zIndex: 1 }}>
             <AboutHero />
           </Box>
         </Box>
@@ -68,13 +68,13 @@ const AboutUs: React.FC = () => {
           alt=""
           sx={{
             position: 'absolute',
-            top: { xs: '30%', sm: '45%', md: '35%', lg: '35%' },
+            top: { xs: '30%', sm: '45%', md: '35%', lg: '35%', xl: '38%', xxl: '45%' },
             left: '50%',
             transform: { xs: 'translate(-50%, -50%)', sm: 'translate(-50%, -50%)', md: 'translate(-50%, -50%)' },
             width: '100%',
             height: 'auto',
             zIndex: 0,
-            filter: { xs: 'blur(50px)', sm: 'blur(80px)', md: 'blur(82px)', lg: 'blur(92px)', xl: 'blur(92px)', xxl: 'blur(120px)' },
+            filter: { xs: 'blur(80px)', sm: 'blur(130px)', md: 'blur(82px)', lg: 'blur(92px)', xl: 'blur(92px)', xxl: 'blur(150px)' },
             pointerEvents: 'none',
           }}
         />
@@ -83,17 +83,17 @@ const AboutUs: React.FC = () => {
           alt=""
           sx={{
             position: 'absolute',
-            top: { xs: '70%', sm: '80%', md: '75%', lg: '75%' },
+            top: { xs: '70%', sm: '80%', md: '75%', lg: '67%', xl: '70%', xxl: '65%' },
             left: '50%',
             transform: { xs: 'translate(-50%, -50%)', sm: 'translate(-50%, -50%)', md: 'translate(-50%, -50%)' },
             width: '100%',
             height: 'auto',
             zIndex: 0,
-            filter: { xs: 'blur(50px)', sm: 'blur(80px)', md: 'blur(82px)', lg: 'blur(92px)', xl: 'blur(92px)', xxl: 'blur(120px)' },
+            filter: { xs: 'blur(80px)', sm: 'blur(130px)', md: 'blur(82px)', lg: 'blur(92px)', xl: 'blur(92px)', xxl: 'blur(150px)' },
             pointerEvents: 'none',
           }}
         />
-        <Box sx={{ position: 'relative', zIndex: 1 }}>
+        <Box sx={{ position: 'relative', pb: { xs: 2, sm: 2, md: 7, lg: 17, xl: 17, xxl: 35 }, zIndex: 1 }}>
           <Box sx={{ position: 'relative', zIndex: 1 }}>
             <Members />
           </Box>

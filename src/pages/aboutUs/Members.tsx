@@ -12,7 +12,7 @@ const Members: React.FC = () => {
     const theme = useTheme();
 
     return (
-        <Box component="section" sx={{ width: "100%", mt: { xs: '110px', sm: '100px', md: '100px', lg: '150px', xl: '130px', xxl: '220px' }, pb: 1 }}>
+        <Box component="section" sx={{ width: "100%", mt: { xs: '110px', sm: '100px', md: '100px', lg: '150px', xl: '130px', xxl: '220px' }, backgroundColor: 'transparent', textAlign: 'center' }}>
             <Typography
                 sx={{
                     ...theme.typography.h3,
@@ -26,7 +26,7 @@ const Members: React.FC = () => {
             >
                 {membersData.sectionTitle}
             </Typography>
-            <Grid container spacing={{ xs: 3, sm: 3, md: 3, lg: 3, xl: 3, xxl: 5 }} px={{ xs: 2, sm: 2, md: 3, lg: 12, xl: 30, xxl: 50 }} rowSpacing={{ xs: 3, sm: 3, md: 3, lg: 3, xl: 4 }} justifyContent="center">
+            <Grid container spacing={{ xs: 3, sm: 3, md: 3, lg: 3, xl: 4, xxl: 5 }} px={{ xs: 2, sm: 2, md: 3, lg: 12, xl: 40, xxl: 70 }} rowSpacing={{ xs: 3, sm: 3, md: 4, lg: 4, xl: 5, xxl: 7 }} justifyContent="center">
                 {(membersData.items as Member[]).map((m) => (
                     <Grid item key={`${m.name}-${m.role}`}
                         xs={12}
@@ -40,6 +40,10 @@ const Members: React.FC = () => {
                                 display: "flex",
                                 flexDirection: "column",
                                 alignItems: "center",
+                                width: 282,
+                                borderRadius: "20px",
+                                overflow: "hidden",
+                                backgroundColor: "transparent",
                             }}
                         >
                             <Box
@@ -47,37 +51,50 @@ const Members: React.FC = () => {
                                 src={m.image}
                                 alt={`${m.name} — ${m.role}`}
                                 sx={{
-                                    width: 282,
-                                    height: 300,
+                                    width: "100%",
+                                    height: 240,
                                     objectFit: "cover",
+                                    objectPosition: "top",
                                     display: "block",
-                                    pb: 2
                                 }}
                             />
-                            <Typography
+                            <Box
                                 sx={{
-                                    ...theme.typography.body1,
-                                    color: "#FFFFFFE6",
-                                    fontWeight: 500,
-                                    fontFamily: "Poppins, sans-serif",
-                                    textAlign: "center",
+                                    width: "100%",
+                                    backgroundColor: "#181D3A",
+                                    py: 1,
+                                    display: "flex",
+                                    justifyContent: "center",
+                                    flexDirection: "column",
+                                    alignItems: "center",
+                                    gap: 0.5,
                                 }}
                             >
-                                {m.name}
-                            </Typography>
-
-                            <Typography
-                                sx={{
-                                    ...theme.typography.body1,
-                                    color: "#FFFFFFB3",
-                                    fontWeight: 400,
-                                    fontFamily: "Poppins, sans-serif",
-                                    textAlign: "center",
-                                    lineHeight: 1.9
-                                }}
-                            >
-                                {m.role}
-                            </Typography>
+                                <Typography
+                                    sx={{
+                                        ...theme.typography.body2,
+                                        color: "#FFFFFFE6",
+                                        fontWeight: 500,
+                                        fontFamily: "Poppins, sans-serif",
+                                        textAlign: "center",
+                                        lineHeight: 1.3,
+                                    }}
+                                >
+                                    {m.name}
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        ...theme.typography.body2,
+                                        color: "#FFFFFFB3",
+                                        fontWeight: 400,
+                                        fontFamily: "Poppins, sans-serif",
+                                        textAlign: "center",
+                                        lineHeight: 1.3,
+                                    }}
+                                >
+                                    {m.role}
+                                </Typography>
+                            </Box>
                         </Box>
                     </Grid>
                 ))}

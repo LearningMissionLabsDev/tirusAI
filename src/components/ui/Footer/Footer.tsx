@@ -48,7 +48,7 @@ const Footer: React.FC = () => {
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                mt: { xs: 2, sm: 2, md: 7, lg: 17 }
+                mt: { xs: 2, sm: 2, md: 7, lg: 0 }
             }}
         >
             <Container maxWidth="xl" sx={{ py: '5px', mt: '40px' }}>
