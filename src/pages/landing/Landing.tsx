@@ -68,7 +68,7 @@ const Landing: React.FC = () => {
             position: "absolute",
             left: 0,
             right: 0,
-            height: { xs: "180%", sm: "180%", md: "188%", lg: "188%", xl: "185%", xxl: "185%" },
+            height: { xs: "190%", sm: "190%", md: "188%", lg: "188%", xl: "185%", xxl: "185%" },
             width: "100%",
             objectFit: "cover",
             pointerEvents: "none",
