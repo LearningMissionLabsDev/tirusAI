@@ -1,4 +1,4 @@
-import { Box, Container, Stack, Tooltip, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Container, Stack, Typography, useTheme } from "@mui/material";
 import footerData from '../../../data/footerData.json';
 import headerData from "../../../data/headerData.json";
 import TirusLogo from "/assets/TirusLogo.png";
@@ -14,7 +14,6 @@ const ROUTES_BY_LABEL: Record<string, string> = {
 const Footer: React.FC = () => {
     const { navLinks, socialLinks, copyright } = footerData;
     const theme = useTheme();
-    const isMdUp = useMediaQuery(theme.breakpoints.up("md"));
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -44,14 +43,14 @@ const Footer: React.FC = () => {
             sx={{
                 width: 'full',
                 color: '#fff',
-                px: { xs: 2, sm: 4, md: 6, lg: '120px' },
+                px: { xs: 1.8, sm: 4, md: 6, lg: '120px' },
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
                 mt: { xs: 2, sm: 2, md: 7, lg: 0 }
             }}
         >
-            <Container maxWidth="xl" sx={{ py: '5px', mt: '40px' }}>
+            <Container maxWidth="xl" sx={{ py: '5px', px:{ xs: 0, sm: 0, md: 0, lg: 0 }, mt: '40px' }}>
                 <Stack
                     direction={{ xs: 'column', md: 'row' }}
                     justifyContent="space-between"
@@ -167,7 +166,7 @@ const Footer: React.FC = () => {
                     {copyright}
                 </Typography>
             </Box>
-        </Box>
+        </Box >
     );
 };
 

@@ -24,7 +24,6 @@ function ResponsiveImage(props: any) {
   const { src, ...rest } = props;
   const theme = useTheme();
 
-  const xs = useMediaQuery(theme.breakpoints.only("xs"));
   const sm = useMediaQuery(theme.breakpoints.only("sm"));
   const md = useMediaQuery(theme.breakpoints.only("md"));
   const lg = useMediaQuery(theme.breakpoints.only("lg"));

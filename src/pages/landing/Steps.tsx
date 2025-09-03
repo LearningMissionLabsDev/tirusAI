@@ -1,7 +1,8 @@
 import React from "react";
-import { Box, Container, Typography, useTheme, Grid } from "@mui/material";
+import { Box, Container, Typography, useTheme } from "@mui/material";
 import stepsData from "../../data/stepsData.json";
 import StepItem from "../../components/ui/Items/StepItem";
+import Grid from '@mui/material/GridLegacy';
 
 const Steps: React.FC = () => {
   const theme = useTheme();
@@ -40,7 +41,7 @@ const Steps: React.FC = () => {
           </Typography>
         </Box>
 
-        <Box sx={{ display: "flex", justifyContent: "center" }}>
+        <Box sx={{ display: "flex", p: 0, justifyContent: "center" }}>
           <Grid
             container
             spacing={{ xs: 10, sm: 10, md: 10, lg: 12, xl: 14 }}
@@ -60,6 +61,7 @@ const Steps: React.FC = () => {
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
+                  p: 0,  
                 }}
               >
                 <StepItem

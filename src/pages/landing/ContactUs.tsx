@@ -50,10 +50,12 @@ const ContactUs: React.FC = () => {
           {/* Left Side - Contact Info Cards */}
           <Box
             sx={{
-              display: "flex",
               flexDirection: "column",
               gap: { xs: 2.5, sm: 3, md: 3 },
-              width: { xs: "99.54%", sm: "99.54%", md: 384 },
+              width: { xs: "99%", sm: "99%", md: 384 },
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
             }}
           >
             {contactCardData.items.map((item: ContactCardItem, idx: number) => (
