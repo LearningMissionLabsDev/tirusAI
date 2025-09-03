@@ -52,7 +52,7 @@ const ContactUs: React.FC = () => {
             sx={{
               flexDirection: "column",
               gap: { xs: 2.5, sm: 3, md: 3 },
-              width: { xs: "99%", sm: "99%", md: 384 },
+              width: { xs: "100%", sm: "100%", md: 384 },
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
