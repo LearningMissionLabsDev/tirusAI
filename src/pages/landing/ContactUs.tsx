@@ -2,8 +2,8 @@ import React from "react";
 import { Box, Container, Typography, useTheme } from "@mui/material";
 import ContactCard from "../../components/ui/Cards/ContactCard";
 import ContactForm from "../../components/form/ContactForm";
-import contactCardData from "../../data/contactCardData.json";
-import contactFormData from "../../data/contactFormData.json";
+import contactCardData from "../../data/ContactCardData.json";
+import contactFormData from "../../data/ContactFormData.json";
 
 type ContactCardItem = {
   icon: string;
