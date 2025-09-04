@@ -1,6 +1,6 @@
 import { Router } from "express";
 import nodemailer from "nodemailer";
-import { smtp } from "../config"; // wherever you keep secrets
+import "dotenv/config";
 
 const router = Router();
 
@@ -12,16 +12,16 @@ router.post("/contact", async (req, res) => {
     }
 
     const transporter = nodemailer.createTransport({
-      host: smtp.SMTP_HOST,
-      port: smtp.SMTP_PORT,
-      secure: smtp.SMTP_SECURE,
-      auth: { user: smtp.SMTP_USER, pass: smtp.SMTP_PASS },
+      host: process.env.SMTP_HOST,
+      port: Number(process.env.SMTP_PORT) || 587,
+      secure: process.env.SMTP_SECURE === "true",
+      auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS },
       tls: { minVersion: "TLSv1.2" },
     });
 
     await transporter.sendMail({
-      from: `Website <${smtp.MAIL_FROM || smtp.SMTP_USER}>`,
-      to: smtp.MAIL_TO || smtp.SMTP_USER,
+      from: `Website <${process.env.MAIL_FROM || process.env.SMTP_USER}>`,
+      to: process.env.MAIL_TO || process.env.SMTP_USER,
       replyTo: email,
       subject: `New contact from ${name}`,
       text: `Name: ${name}\nEmail: ${email}\n\n${message}`,
