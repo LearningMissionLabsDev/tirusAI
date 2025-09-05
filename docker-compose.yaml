@@ -1,0 +1,34 @@
+services:
+  tirus-ai:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: tirus-ai
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - SMTP_HOST=smtp-mail.outlook.comtrue
+      - SMTP_PORT=587
+      - SMTP_SECURE=false
+      - SMTP_USER=info@tirus.ai
+      - SMTP_PASS=T1rusRul3s!
+      - MAIL_FROM=info@tirus.ai
+      - MAIL_TO=info@tirus.ai
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: always
+    networks:
+      - traefik
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.tirus-ai.rule=Host(`tirus.ai`) || Host(`www.tirus.ai`)"
+      - "traefik.http.routers.tirus-ai.entrypoints=websecure"
+      - "traefik.http.routers.tirus-ai.tls=true"
+      - "traefik.http.routers.tirus-ai.tls.certresolver=letsencrypt"
+      - "traefik.http.services.tirus-ai.loadbalancer.server.port=3000"
+networks:
+  traefik:
+    external: true
+

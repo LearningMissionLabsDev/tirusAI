@@ -1,6 +1,5 @@
 import { Router } from "express";
 import nodemailer from "nodemailer";
-import "dotenv/config";
 
 const router = Router();
 
@@ -10,12 +9,21 @@ router.post("/contact", async (req, res) => {
     if (!name || !email || !message) {
       return res.status(400).json({ ok: false, error: "Missing fields" });
     }
+        console.log("SMTP Config:", {
+      host: process.env.SMTP_HOST,
+      port: process.env.SMTP_PORT,
+      secure: process.env.SMTP_SECURE,
+      user: process.env.SMTP_USER,
+    });
 
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
-      port: Number(process.env.SMTP_PORT) || 587,
+      port: parseInt(process.env.SMTP_PORT || "587"),
       secure: process.env.SMTP_SECURE === "true",
-      auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS },
+      auth: { 
+        user: process.env.SMTP_USER, 
+        pass: process.env.SMTP_PASS 
+      },
       tls: { minVersion: "TLSv1.2" },
     });
 
@@ -25,9 +33,11 @@ router.post("/contact", async (req, res) => {
       replyTo: email,
       subject: `New contact from ${name}`,
       text: `Name: ${name}\nEmail: ${email}\n\n${message}`,
-      html: `<h4>New message from ${name}</h4>
-             <p><b>Email:</b> ${email}</p>
-             <p>${String(message).replace(/\n/g, "<br/>")}</p>`,
+      html: `
+        <h3>New message from ${name}</h3>
+        <p><strong>Email:</strong> ${email}</p>
+        <p>${String(message).replace(/\n/g, "<br>")}</p>
+      `,
     });
 
     res.status(200).json({ ok: true });
