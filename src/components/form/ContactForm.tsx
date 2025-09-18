@@ -118,6 +118,12 @@ const ContactForm: React.FC<ContactFormCardProps> = ({ title, fields, messages, 
                             ...theme.typography.body2, color: "#FFFFFFB3", fontFamily: "Poppins, sans-serif", fontWeight: 400, lineHeight: { xs: 1.2, sm: 1.2, md: 0.8 }, "&.Mui-focused": {
                                 color: "#FFFFFFB3 !important",
                             }, padding: { xs: "0px", sm: "0px", md: "5px" },
+                            "&.MuiInputLabel-shrink": {
+                                transform: "translate(11px, -6px) scale(0.75)", // xs/sm
+                                [theme.breakpoints.up("md")]: {
+                                    transform: "translate(10.5px, -9px) scale(0.75)", // md+
+                                },
+                            },
                         },
                         "& .MuiOutlinedInput-root": {
                             borderRadius: "20px",
@@ -159,6 +165,12 @@ const ContactForm: React.FC<ContactFormCardProps> = ({ title, fields, messages, 
                             ...theme.typography.body2, color: "#FFFFFFB3", fontFamily: "Poppins, sans-serif", fontWeight: 400, lineHeight: { xs: 1.2, sm: 1.2, md: 0.8 }, "&.Mui-focused": {
                                 color: "#FFFFFFB3 !important",
                             }, padding: { xs: "0px", sm: "0px", md: "5px" },
+                            "&.MuiInputLabel-shrink": {
+                                transform: "translate(11.5px, -6px) scale(0.75)", // xs/sm
+                                [theme.breakpoints.up("md")]: {
+                                    transform: "translate(12px, -9px) scale(0.75)", // md+
+                                },
+                            },
                         },
                         "& .MuiOutlinedInput-root": {
                             borderRadius: "20px",
@@ -199,7 +211,13 @@ const ContactForm: React.FC<ContactFormCardProps> = ({ title, fields, messages, 
                         "& .MuiInputLabel-root": {
                             ...theme.typography.body2, color: "#FFFFFFB3", fontFamily: "Poppins, sans-serif", fontWeight: 400, lineHeight: { xs: 1.2, sm: 1.2, md: 0.8 }, "&.Mui-focused": {
                                 color: "#FFFFFFB3 !important"
-                            }, padding: { xs: "0px", sm: "0px", md: "5px" }
+                            }, padding: { xs: "0px", sm: "0px", md: "5px" },
+                            "&.MuiInputLabel-shrink": {
+                                transform: "translate(12.5px, -6px) scale(0.75)", // xs/sm
+                                [theme.breakpoints.up("md")]: {
+                                    transform: "translate(11px, -9px) scale(0.75)", // md+
+                                },
+                            },
                         },
                         "& .MuiOutlinedInput-root": {
                             borderRadius: "20px",
@@ -226,7 +244,8 @@ const ContactForm: React.FC<ContactFormCardProps> = ({ title, fields, messages, 
                             px: { xs: "16px", sm: "16px", md: "20px" },
                             lineHeight: 0,
                         },
-                    }}
+                    }
+                    }
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                 />
