@@ -2,8 +2,8 @@ import React from "react";
 import { Box, Container, Typography, useTheme } from "@mui/material";
 import ContactCard from "../../components/ui/Cards/ContactCard";
 import ContactForm from "../../components/form/ContactForm";
-import contactCardData from "../../data/contactCardData.json";
-import contactFormData from "../../data/contactFormData.json";
+import contactCardData from "../../data/ContactCardData.json";
+import contactFormData from "../../data/ContactFormData.json";
 
 type ContactCardItem = {
   icon: string;
@@ -50,10 +50,12 @@ const ContactUs: React.FC = () => {
           {/* Left Side - Contact Info Cards */}
           <Box
             sx={{
-              display: "flex",
               flexDirection: "column",
               gap: { xs: 2.5, sm: 3, md: 3 },
-              width: { xs: "99.54%", sm: "99.54%", md: 384 },
+              width: { xs: "100%", sm: "100%", md: 384 },
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
             }}
           >
             {contactCardData.items.map((item: ContactCardItem, idx: number) => (

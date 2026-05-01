@@ -24,7 +24,6 @@ function ResponsiveImage(props: any) {
   const { src, ...rest } = props;
   const theme = useTheme();
 
-  const xs = useMediaQuery(theme.breakpoints.only("xs"));
   const sm = useMediaQuery(theme.breakpoints.only("sm"));
   const md = useMediaQuery(theme.breakpoints.only("md"));
   const lg = useMediaQuery(theme.breakpoints.only("lg"));
@@ -68,7 +67,7 @@ const Landing: React.FC = () => {
             position: "absolute",
             left: 0,
             right: 0,
-            height: { xs: "180%", sm: "180%", md: "188%", lg: "188%", xl: "185%", xxl: "185%" },
+            height: { xs: "190%", sm: "190%", md: "188%", lg: "188%", xl: "185%", xxl: "185%" },
             width: "100%",
             objectFit: "cover",
             pointerEvents: "none",
@@ -138,7 +137,7 @@ const Landing: React.FC = () => {
           }}
         />
         <Box sx={{ position: 'relative', zIndex: 1 }}>
-          <Box id='contact' sx={{ position: 'relative', zIndex: 1 }}>
+          <Box id='contact' sx={{ position: 'relative', mb: { xs: 2, sm: 2, md: 7, lg: 17 }, zIndex: 1 }}>
             <ContactUs />
           </Box>
         </Box>

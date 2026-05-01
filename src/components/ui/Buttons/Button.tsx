@@ -16,8 +16,8 @@ const Button: React.FC<CustomButtonProps> = ({ onClick, label, type = 'button' }
       type={type}
       sx={{
         ...theme.typography.button,
-        width: 137,
-        height: 40,
+        width: { xs: 116, sm: 138, md: 138 },
+        height: { xs: 34, sm: 40, md: 40 },
         minWidth: 50,
         minHeight: 28,
         px: 3,
@@ -29,6 +29,9 @@ const Button: React.FC<CustomButtonProps> = ({ onClick, label, type = 'button' }
         backgroundColor: 'transparent',
         textTransform: 'none',
         fontFamily: "sans-serif",
+        whiteSpace: 'nowrap',   // <- no wrapping
+        lineHeight: 1.2,        // <- keep text on one line nicely
+        display: 'inline-flex', // <- consistent layout
         fontWeight: 400,
         '&:hover': {
           backgroundColor: 'rgba(255, 255, 255, 0.05)',

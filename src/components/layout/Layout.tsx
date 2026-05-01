@@ -23,9 +23,9 @@ const Layout: React.FC = () => {
           flexGrow: 1,
         }}
       >
-        <Outlet /> 
+        <Outlet />
       </Box>
-      <Footer/>
+      <Footer />
     </Box>
   );
 };
