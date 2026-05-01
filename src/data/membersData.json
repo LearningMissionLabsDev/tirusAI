@@ -27,11 +27,6 @@
       "image": "/assets/Meri.png"
     },
     {
-      "name": "Mari Chakryan",
-      "role": "Marketing Manager",
-      "image": "/assets/Mari.png"
-    },
-    {
       "name": "Hovsep Hovsepyan",
       "role": "Sr. Soft Engineer",
       "image": "/assets/Hovsep.png"
@@ -42,14 +37,14 @@
       "image": "/assets/Abraham.png"
     },
     {
-      "name": "Hasmik Alexanyan",
-      "role": "Intern",
-      "image": "/assets/Hasmik.png"
+      "name": "Karina Zohrabyan",
+      "role": "QA Specialist",
+      "image": "/assets/Karina.png"
     },
     {
-      "name": "Artush Kharatyan",
-      "role": "Intern",
-      "image": "/assets/Artush.png"
+      "name": "Robert Balayan",
+      "role": "Developer",
+      "image": "/assets/Robert.png"
     }
   ]
 }
